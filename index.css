@@ -1,0 +1,76 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+header{
+    border-bottom: 1px solid #808080;
+    background-color: rgb(47, 55, 85);
+    display: flex;
+}
+
+#logo{
+    height: 45px;
+    width: 45px;
+    background-image: url(./Images/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 90px;
+}
+#logoName{
+    font-size: small;
+    padding-left: 3px;
+    color: #fff;
+}
+
+nav{
+    margin-top: 20px;
+    margin-left: 20%;
+}
+a{
+    color: #fff;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+#AboutUs:hover{
+    text-decoration: underline;
+}
+#Service:hover{
+    text-decoration: underline; 
+}
+#ContactUs:hover{
+    text-decoration: underline;
+}
+#Signup:hover{
+    text-decoration: underline;
+}
+
+#search{
+    margin-left: 50px;
+    padding-left: 5px;
+    border-radius: 9px;
+    width: 200px;
+}
+
+section{
+    height: auto;
+    width: 600px;
+}
+.Greeting{
+    position: relative;
+    top: 150px;
+    left: 110%;
+    font-size: x-large;
+    color: rgb(47, 55, 85);
+}
+
+.scrollDown{
+    position: relative;
+    top: 300px;
+    left: 115%;
+}
