@@ -4,6 +4,107 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
+
+.signup{
+    position: relative;
+    top: 120px;
+    left: 37%;
+    height: 400px;
+    width: 400px;
+    background-color: rgb(47, 55, 85);
+    border-radius: 19px;
+    box-shadow: 2px 2px 9px 2px #808080;
+    color: #fff;
+}
+
 h1{
-    /* font-family: 'Poppins',sans-serif; */
+    padding-left: 34%;
+}
+
+form{
+    margin-top: 20px;
+    margin-left: 100px;
+}
+form #submit{
+    border-radius: 9px;
+    border: none;
+    box-shadow: 2px 2px 9px 2px #808080;
+    width: 70px;
+    margin-top: 10px;
+    margin-left: 50px;
+    padding-left: 0px;
+}
+
+i{
+    margin-right: 5px;
+}
+
+input{
+    border-radius: 9px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+#forgotPassword{
+    color: #fff;
+    padding-top: 10px;
+    padding-left: 34%;
+}
+
+#forgotPassword:hover{
+    color: rgb(47, 0, 255);
+}
+p{
+    margin-top: 10px;
+    padding-left: 22%;
+}
+
+.Already{
+    display: flex;
+}
+
+.login{
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.login:hover{
+    color: rgb(47, 0, 255);
+}
+
+.GorF{
+    margin-top: 35px;
+    position: relative;
+    left: 17%;
+    font-size: large;
+    display: flex;
+}
+
+.line1{
+    border-top: 3px solid #fff;
+    width: 70px;
+    margin-top: 12px;
+}
+.line2{
+    border-top: 3px solid #fff;
+    width: 70px;
+    margin-top: 12px;
+}
+
+.option{
+    display: flex;
+    margin-top: 15px;
+    margin-left: 40%;    
+}
+.or{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.google{
+    padding-top: 10px;
+}
+.facebook{
+    padding-top: 10px;
 }
