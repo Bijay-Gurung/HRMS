@@ -5,7 +5,7 @@
     font-family: 'Poppins',sans-serif;
 }
 
-.signup{
+.login{
     position: relative;
     top: 120px;
     left: 37%;
@@ -63,13 +63,13 @@ p{
     display: flex;
 }
 
-.login{
+.signup{
     margin-top: 10px;
     margin-left: 10px;
     color: #fff;
 }
 
-.login:hover{
+.signup:hover{
     color: rgb(47, 0, 255);
 }
 
