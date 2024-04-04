@@ -6,8 +6,11 @@
 }
 header{
     border-bottom: 1px solid #808080;
+    width: 100%;
     background-color: rgb(47, 55, 85);
     display: flex;
+    position: fixed;
+    z-index: 1;
 }
 
 #logo{
@@ -55,6 +58,7 @@ a{
     padding-left: 5px;
     border-radius: 9px;
     width: 200px;
+    border: none;
 }
 
 section{
@@ -63,7 +67,7 @@ section{
 }
 .Greeting{
     position: relative;
-    top: 150px;
+    top: 190px;
     left: 110%;
     font-size: x-large;
     color: rgb(47, 55, 85);
@@ -73,4 +77,159 @@ section{
     position: relative;
     top: 300px;
     left: 115%;
+}
+
+.message{
+    height: 300px;
+    width: 1100px;
+    background-color: rgb(47, 55, 85);
+    border-radius: 15px;
+    box-shadow: 2px 2px 9px 2px #808080;
+    position: relative;
+    top: 550px;
+    left: 180px;    
+    color: #fff;
+    display: flex;
+}
+
+.left{
+    width: 40%;
+    background-image: url(./Images/Image.jpg);
+    background-size: contain;
+    background-position: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.right{
+    width: 60%;
+}
+
+.right h3{
+    text-align: center;
+    padding-top: 40px;
+}
+.right p{
+    text-align: center;
+    padding-top: 50px;
+}
+
+.aboutInnovateNepal{
+    height: 190px;
+    width: 1100px;
+    background-color: rgb(47, 55, 85);
+    box-shadow: 2px 2px 9px 2px #808080;
+    border-radius: 15px;
+    color: #fff;
+    position: relative;
+    top: 700px;
+    left: 90px;
+}
+
+.title1{
+    text-decoration: underline;
+    padding-left: 10px;
+}
+.content1{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.HRMS{
+    height: 190px;
+    width: 900px;
+    background-color: rgb(47, 55, 85);
+    box-shadow: 2px 2px 9px 2px #808080;
+    border-radius: 15px;
+    color: #fff;
+    position: relative;
+    top: 800px;
+    left: 530px;
+}
+
+.title2{
+    text-decoration: underline;
+    padding-left: 10px;
+}
+
+.content2{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.why{
+    height: 190px;
+    width: 900px;
+    background-color: rgb(47, 55, 85);
+    box-shadow: 2px 2px 9px 2px #808080;
+    border-radius: 15px;
+    color: #fff;
+    position: relative;
+    top: 900px;
+    left: 230px;
+}
+
+.title3{
+    text-decoration: underline;
+    padding-left: 10px;
+}
+
+.content3{
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.services{
+    height: 350px;
+    width: 1300px;
+    position: relative;
+    top: 1000px;
+    left: 80px;
+    display: grid;
+    grid-template-columns: repeat(12,100px);
+    grid-template-rows: repeat(6,100px);
+}
+
+.title4{
+    text-decoration: underline;
+    padding-left: 10px;
+    color:rgb(47, 55, 85);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.box{
+    height: 200px;
+    width: 200px;
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    
+}
+.one{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.two{
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.three{
+    grid-column-start: 8;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.four{
+    grid-column-start: 11;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 4;
 }
