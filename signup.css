@@ -21,6 +21,20 @@ h1{
     padding-left: 34%;
 }
 
+.nav{
+    display: flex;
+}
+
+button{
+    margin-top: 10px;
+    margin-left: 90px;
+    height: 20px;
+    width: 50px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 2px 2px 9px 2px #808080;
+}
+
 form{
     margin-top: 20px;
     margin-left: 100px;

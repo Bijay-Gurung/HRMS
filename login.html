@@ -9,7 +9,11 @@
 
 <body>
     <div class="login">
-        <h1>Login</h1>
+        <div class="nav">
+            <h1>Login</h1>
+            <button onclick="back()"><i class="fa-solid fa-xmark fa-rotate-90" style="color: #2f3755;"></i></button>
+        </div>
+
         <form method="post">
             <i class="fa-solid fa-envelope"></i>
             <input type="email" placeholder="Email" id="email" name="email" required>
@@ -43,6 +47,12 @@
         </div>
         
     </div>
+
+    <script>
+        function back(){
+            location = 'index.html';
+        }
+    </script>
 
 <script src="https://kit.fontawesome.com/4f9d824da5.js" crossorigin="anonymous"></script>
 </body>
