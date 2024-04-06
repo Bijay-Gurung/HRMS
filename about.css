@@ -1,0 +1,166 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+header{
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+#logo{
+    height: 45px;
+    width: 45px;
+    background-image: url(./Images/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 90px;
+}
+#logoName{
+    font-size: small;
+    padding-left: 3px;
+    color: #fff;
+}
+
+nav{
+    margin-top: 20px;
+    margin-left: 20%;
+}
+a{
+    color: #fff;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+#AboutUs:hover{
+    text-decoration: underline;
+}
+#Service:hover{
+    text-decoration: underline; 
+}
+#ContactUs:hover{
+    text-decoration: underline;
+}
+#Signup:hover{
+    text-decoration: underline;
+}
+
+#search{
+    margin-left: 50px;
+    padding-left: 5px;
+    border-radius: 9px;
+    width: 200px;
+    border: none;
+}
+
+section{
+    height: auto;
+    width: 600px;
+}
+.contents{
+    height: 300px;
+    width: 100%;
+    position: relative;
+    top: 200px;
+    left: 220px;
+    display: grid;
+    grid-template-columns: repeat(12, 100px);
+    grid-template-rows: repeat(8, 100px);
+}
+.content1{
+   grid-column-start: 1;
+   grid-column-end: 4;
+   grid-row-start: 1;
+   grid-row-end: 5;
+   background-color: rgb(47, 55, 85);
+   border-radius: 15px;
+    
+}
+.content2{
+    grid-column-start: 5;
+    grid-column-end: 12;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.content3{
+    grid-column-start: 5;
+    grid-column-end: 12;
+    grid-row-start: 4;
+    grid-row-end: 6;
+}
+
+.content4{
+    grid-column-start: 1;
+    grid-column-end: 12;
+    grid-row-start: 6;
+    grid-row-end: 8;
+}
+
+footer{
+    display: flex;
+    height: auto;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    margin-top: 50%;
+}
+
+.Cont{
+    width: 20%;
+    color: #fff;
+    
+}
+
+i{
+    padding-left: 5px;
+}
+
+p{
+    padding-top: 20px;
+    padding-left: 5px;
+}
+
+.socialMedia{
+    padding-top: 20px;
+    padding-left: 10px;
+    letter-spacing: 0.3em;
+}
+
+.Cont h3{
+    padding-top: 10px;
+    padding-left: 20px;
+    text-decoration: underline;
+}
+
+.srvc{
+    width: 20%;
+    color: #fff;
+}
+
+.srvc h3{
+    padding-top: 10px;
+    padding-left: 10px;
+    text-decoration: underline;
+}
+
+.about{
+    color: #fff;
+    text-decoration: underline;
+    width: 20%;
+}
+
+.map{
+    height: 150px;
+    width: 40%;
+    background-color: #fff;
+    border-radius: 9px;
+    margin-top: 17px;
+    margin-right: 20px;
+}
