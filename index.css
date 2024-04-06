@@ -4,6 +4,11 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
 header{
     border-bottom: 1px solid #808080;
     width: 100%;
