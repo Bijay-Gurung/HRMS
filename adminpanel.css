@@ -1,0 +1,154 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+#logo{
+    height: 45px;
+    width: 45px;
+    background-image: url(./Images/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 90px;
+}
+#logoName{
+    font-size: small;
+    padding-left: 3px;
+    color: #fff;
+}
+
+nav{
+    margin-top: 20px;
+    margin-left: 20%;
+}
+a{
+    color: #fff;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+#AboutUs:hover{
+    text-decoration: underline;
+}
+#Service:hover{
+    text-decoration: underline; 
+}
+#ContactUs:hover{
+    text-decoration: underline;
+}
+#Signup:hover{
+    text-decoration: underline;
+}
+
+#search{
+    margin-left: 50px;
+    padding-left: 5px;
+    border-radius: 9px;
+    width: 200px;
+    border: none;
+}
+
+section{
+    height: auto;
+    width: 100%;
+}
+form{
+    position: relative;
+    top: 100px;
+    height: auto;
+    width: 100%;
+    display: flex;
+}
+
+.personalDetails{
+    position: relative;
+    top: 30px;
+    left: 280px;
+}
+
+.personalDetails h3{
+    color: rgb(47, 55, 85);
+}
+
+.emergencyContact{
+    position: relative;
+    top: 80px;
+    left: 280px;
+}
+
+.emergencyContact h3{
+    color: rgb(47, 55, 85);
+}
+
+.jobInformation{
+    position: relative;
+    top: 30px;
+    left: 40px;
+}
+
+.next{
+    position: relative;
+    top: 120px;
+    left: 650px;
+    display: flex;
+}
+
+.next p{
+    color: rgb(47, 55, 85);
+    padding-top: 2px;
+    margin-right: 5px;
+}
+
+.next button{
+    width: 60px;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.left{
+    width: 50%;
+}
+.right{
+    width: 30%;
+}
+
+form input{
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    height: 30px;
+    width: 180px;
+    border-radius: 9px;
+    margin-top: 10px;
+    padding-left: 5px;
+    border: none;
+}
+
+#pp{
+    padding-top: 5px;
+}
+
+form ::placeholder{
+    color: #fff;
+    opacity: 1px;
+}
