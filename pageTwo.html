@@ -60,11 +60,20 @@
                 <label for="certificate">Upload employee certificate</label>
                 <input type="file" id="certificate" name="certificate" required>
                 <input type="submit" id="add" name="add">
+
+                <div class="prev">
+                    <label for="prev">Prev</label>
+                    <button onclick="prev()"><i class="fa-solid fa-angle-left" style="color: #ffffff;"></i></button></div>
             </div>
         </form>
         <div class="blank"></div>
     </section>
 
+    <script>
+        function prev(){
+            location='pageOne.html';
+        }
+    </script>
     <script src="https://kit.fontawesome.com/4f9d824da5.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -164,9 +164,23 @@ form ::placeholder{
     border-radius: 9px;
 }
 
+.prev{
+    position: relative;
+    top: 160px;
+    right: 200px;
+}
+
+.prev button{
+    height: 20px;   
+    width: 60px;
+    border-radius: 15px;
+    border: none;
+    background-color: rgb(47, 55, 85);
+}
+
 .blank{
     height: 150px;
     width: 100%;
     position: relative;
-    top: 250px;
+    top: 280px;
 }
