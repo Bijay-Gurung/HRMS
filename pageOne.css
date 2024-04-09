@@ -81,7 +81,7 @@ form{
 .personalDetails{
     position: relative;
     top: 30px;
-    left: 280px;
+    left: 320px;
 }
 
 .personalDetails h3{
@@ -91,7 +91,7 @@ form{
 .emergencyContact{
     position: relative;
     top: 80px;
-    left: 280px;
+    left: 320px;
 }
 
 .emergencyContact h3{
@@ -101,7 +101,8 @@ form{
 .jobInformation{
     position: relative;
     top: 30px;
-    left: 40px;
+    left: 70px;
+    margin-top: 30px;
 }
 
 .next{

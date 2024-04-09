@@ -1,0 +1,172 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+#logo{
+    height: 45px;
+    width: 45px;
+    background-image: url(./Images/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 90px;
+}
+#logoName{
+    font-size: small;
+    padding-left: 3px;
+    color: #fff;
+}
+
+nav{
+    margin-top: 20px;
+    margin-left: 20%;
+}
+a{
+    color: #fff;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+#AboutUs:hover{
+    text-decoration: underline;
+}
+#Service:hover{
+    text-decoration: underline; 
+}
+#ContactUs:hover{
+    text-decoration: underline;
+}
+#Signup:hover{
+    text-decoration: underline;
+}
+
+#search{
+    margin-left: 50px;
+    padding-left: 5px;
+    border-radius: 9px;
+    width: 200px;
+    border: none;
+}
+
+section{
+    height: auto;
+    width: 100%;
+}
+
+form{
+    position: relative;
+    top: 100px;
+    height: auto;
+    width: 100%;
+    display: flex;
+}
+
+.jobHistory{
+    position: relative;
+    left: 260px;
+}
+
+form input{
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    height: 30px;
+    width: 180px;
+    border-radius: 9px;
+    margin-top: 25px;
+    padding-left: 5px;
+    border: none;
+}
+
+form p{
+    margin-top: 15px;
+}
+
+form ::placeholder{
+    color: #fff;
+    opacity: 1px;
+}
+
+.jobHistory h3{
+    color: rgb(47, 55, 85);
+}
+
+.disciplinaryRecords{
+    position: relative;
+    top: 10px;
+    font-size: small;
+}
+
+.disciplinaryRecords p{
+    position: relative;
+    left: 260px;
+}
+
+.disciplinaryRecords label{
+    position: relative;
+    left: 260px;
+    bottom: 2px;
+}
+
+.disciplinaryRecords input{
+    height: 15px;
+    width: 15px;
+    position: relative;
+    left: 260px;
+    padding-left: 10px;
+}
+
+.right{
+    position: relative;
+    left: 500px;
+}
+
+.right label{
+    margin-top: 10px;
+}
+
+.right textarea{
+    margin-top: 10px;
+}
+
+#certificate{
+    position: relative;
+    bottom: 4px;
+    width: 190px;
+    padding-top: 5px;
+}
+
+#add{
+    position: relative;
+    top: 100px;
+    right: 560px;
+    height: 30px;
+    width: 90px;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border-radius: 9px;
+}
+
+.blank{
+    height: 150px;
+    width: 100%;
+    position: relative;
+    top: 250px;
+}
