@@ -45,25 +45,17 @@ a{
 #home:hover{
     text-decoration: underline;
 }
-#AboutUs:hover{
+#edm:hover{
     text-decoration: underline;
 }
-#Service:hover{
+#pm:hover{
     text-decoration: underline; 
 }
-#ContactUs:hover{
+#con:hover{
     text-decoration: underline;
 }
-#Signup:hover{
+#pe:hover{
     text-decoration: underline;
-}
-
-#search{
-    margin-left: 50px;
-    padding-left: 5px;
-    border-radius: 9px;
-    width: 200px;
-    border: none;
 }
 
 section{
