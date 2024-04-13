@@ -34,7 +34,7 @@ header{
 
 nav{
     margin-top: 20px;
-    margin-left: 20%;
+    margin-left: 40%;
 }
 a{
     color: #fff;
@@ -56,4 +56,260 @@ a{
 }
 #pe:hover{
     text-decoration: underline;
+}
+
+.userlogo{
+    color: #fff;
+    display: flex;
+    position: relative;
+    top: 15px;
+    left: 550px;
+}
+
+.image{
+    height: 50px;
+    width: 50px;
+    background-image: url(./Images/Bijay.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 90px;
+    position: relative;
+    bottom: 10px;
+    margin-left: 15px;
+}
+
+.role{
+    color: #fff;
+    position: relative;
+    top: 35px;
+    left: 400px;
+    font-size: small;
+}
+
+section{
+    display: grid;
+    height: 600px;
+    width: 100%;
+    position: relative;
+    top: 60px;
+    grid-template-columns: repeat(16,100px);
+    grid-template-rows: repeat(7,100px);
+}
+
+.sideNavbar{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 8;
+    background-color: rgb(47, 55, 85);
+}
+
+.sideNavbar button{
+    height: 30px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.sideNavbar #dashboard{
+    margin-top: 0px;
+}
+
+.content1{
+    color: #fff;
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+
+.totalEmployees{
+    display: flex;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.totalEmployees i{
+    padding-left: 20px;
+}
+
+.totalEmployees h3{
+    font-size: small;
+    padding-left: 10px;
+}
+
+.content1 #employees{
+    padding-top: 10px;
+    padding-left: 50%;
+}
+
+.girls{
+    display: flex;
+    padding-left: 30px;
+    font-size: small;
+}
+
+.boys{
+    display: flex;
+    padding-left: 30px;
+    font-size: small;
+    margin-top: 6px;
+}
+
+.content2{
+    color: #fff;
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    position: relative;
+    top: 10px;
+    left: 80px;
+    height: 50px;
+}
+
+.newEmployee{
+    display: flex;
+    padding-top: 5px;
+}
+
+.newEmployee h3{
+    font-size: small;
+    padding-left: 10px;
+}
+
+.newEmployee i{
+    padding-left: 24%;
+}
+
+#newEmployee{
+    padding-top: 5px;
+    padding-left: 47%;
+}
+
+.content3{
+    color: #fff;
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    position: relative;
+    top: 65px;
+    left: 80px;
+    height: 50px;
+}
+
+.GNP{
+    display: flex;
+    padding-top: 5px;
+}
+
+.GNP h3{
+    font-size: small;
+    padding-left: 10px;
+}
+
+.GNP i{
+    padding-left: 20%;
+}
+
+#grossNetProfit{
+    padding-top: 5px;
+    padding-left: 37%;
+}
+
+.content4{
+    color: #fff;
+    grid-column-start: 8;
+    grid-column-end: 15;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    position: relative;
+    top: 10px;
+    left: 40px;
+    display: flex;
+}
+
+.present{
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    height: 50px;
+    width: 120px;
+}
+
+.present h3{
+    font-size: small;
+    padding-top: 5px;
+    padding-left: 27%;
+}
+
+.present p{
+    padding-top: 5px;
+    padding-left: 37%;
+}
+
+.late{
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    height: 50px;
+    width: 120px;
+    margin-left: 40px;
+}
+
+.late h3{
+    font-size: small;
+    padding-top: 5px;
+    padding-left: 37%;
+}
+
+.late p{
+    padding-top: 5px;
+    padding-left: 37%;
+}
+
+.absent{
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    height: 50px;
+    width: 120px;
+    margin-left: 40px;
+}
+
+.absent h3{
+    font-size: small;
+    padding-top: 5px;
+    padding-left: 27%;
+}
+
+.absent p{
+    padding-top: 5px;
+    padding-left: 37%;
+}
+
+.EAC{
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    height: 50px;
+    width: 400px;
+    margin-left: 40px;
+    display: flex;
+}
+
+.EAC i{
+    padding-top: 15px;
+    padding-left: 40px;
+}
+
+.EAC h3{
+    font-size: small;
+    padding-top: 15px;
+    padding-left: 10px;
 }
