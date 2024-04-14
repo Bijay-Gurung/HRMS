@@ -313,3 +313,150 @@ section{
     padding-top: 15px;
     padding-left: 10px;
 }
+
+.content5{
+    color: #fff;
+    grid-column-start: 4;
+    grid-column-end: 11;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.searchSection{
+    margin-top: 60px;
+    margin-left: 140px;
+    display: flex;
+}
+
+#searchbar{
+    height: 30px;
+    width: 250px;
+    background-color: rgb(47, 55, 85);
+    border-radius: 9px;
+    padding-left: 5px;
+    border: none;
+    box-shadow: 2px 2px 7px 1px #000000;
+    color: #fff;
+}
+.content5 ::placeholder{
+    color: #fff;
+    opacity: 1;
+}
+
+.searchSection button{
+    height: 30px;
+    width: 50px;
+    border-radius: 9px;
+    background-color: rgb(47, 55, 85);
+    border: none;
+    box-shadow: 2px 2px 7px 1px #000000;
+    margin-left: 20px;
+}
+
+table{
+    grid-column-start: 4;
+    grid-column-end: 11;
+    grid-row-start: 4;
+    grid-row-end: 7;
+    background-color: rgb(47, 55, 85);
+    width: 100%;
+}
+
+#heading{
+    background-color: #fff;
+}
+
+th{
+    font-size: large;
+    color: rgb(47, 55, 85);
+}
+
+td img{
+    border-radius: 90px;
+}
+td{
+    text-align: center;
+}
+
+td button{
+    border-radius: 9px;
+    border: none;
+    height: 20px;
+    width: 90px;
+    box-shadow: 2px 2px 7px #aaaaaa;
+}
+
+.employeePerformance{
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 30px;
+}
+
+.content6{
+    color: #fff;
+    grid-column-start: 11;
+    grid-column-end: 14;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    position: relative;
+    left: 105%;
+    bottom: 500%;
+    height: 500px;
+    width: 400px;
+    background-color: #fff;
+    box-shadow: 2px 2px 9px 2px #aaaaaa;
+    border-radius: 15px;
+}
+
+.content6 form input{
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    height: 30px;
+    width: 190px;
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.content6 form button{
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    height: 30px;
+    width: 50px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.content6 h3{
+    padding-top: 10px;
+    text-align: center;
+    color: rgb(47, 55, 85);
+}
+
+.Tasks{
+    height: 400px;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    margin-top: 20px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.Tasks li{
+    list-style: none;
+    padding-top: 10px;
+    padding-left: 17%;
+}
