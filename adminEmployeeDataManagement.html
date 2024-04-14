@@ -27,12 +27,12 @@
 
     <section>
         <div class="sideNavbar">
-            <button id="dashboard">Dashboard</button>
-            <button id="employeeDataManagement">Employee Data Management</button>
-            <button id="payroll">Payroll Management</button>
-            <button id="Benefits">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
-            <button id="logout">Logout</button>
+            <button id="dashboard" onclick="dashboard()">Dashboard</button>
+            <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
+            <button id="payroll" onclick="payroll()">Payroll Management</button>
+            <button id="Benefits" onclick="benefit()">Benefits Management</button>
+            <button id="performanceEvaluation" onclick="performanceEvaluation()">performance Evaluation</button>
+            <button id="logout" onclick="logout()">Logout</button>
         </div>    
 
         <div class="searchSection">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="addNewEmployee">
-            <button>Add New Employee</button>
+            <button onclick="addNewEmployee()">Add New Employee</button>
         </div>
 
         <div class="content">
@@ -70,6 +70,7 @@
         </div>
     </section>
 
+    <script src="adminNav.js"></script>
     <script src="https://kit.fontawesome.com/4f9d824da5.js" crossorigin="anonymous"></script>
 </body>
 </html>
