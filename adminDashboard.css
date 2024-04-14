@@ -454,9 +454,29 @@ td button{
     overflow: hidden;
     overflow-y: scroll;
 }
+.new{
+    display: flex;
+}
 
-.Tasks li{
-    list-style: none;
-    padding-top: 10px;
-    padding-left: 17%;
+.new #tick{
+    height: 20px;
+    width: 20px;
+}
+
+.new li{
+    list-style-type: none;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.new #edit{
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    height: 20px;
+}
+
+.new #delete{
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    height: 20px;
 }
