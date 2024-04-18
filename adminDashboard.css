@@ -341,6 +341,7 @@ section{
     box-shadow: 2px 2px 7px 1px #000000;
     color: #fff;
 }
+
 .content5 ::placeholder{
     color: #fff;
     opacity: 1;
@@ -379,6 +380,7 @@ td img{
 }
 td{
     text-align: center;
+    color: #fff;
 }
 
 td button{
@@ -465,7 +467,6 @@ td button{
 
 .new li{
     list-style-type: none;
-    padding-top: 20px;
     padding-left: 10px;
 }
 

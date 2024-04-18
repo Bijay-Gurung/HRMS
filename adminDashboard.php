@@ -1,4 +1,6 @@
 <?php
+$task = "";
+
 // Database Configuration
 $db_host = 'localhost';
 $db_username = 'root';
@@ -133,27 +135,110 @@ if (isset($_POST["task"]) && !empty($_POST["task"])) {
             </div>
         </div>
 
+        
+        <div class="content5">
+            <div class="searchSection">
+                <form method="post">
+                    <input type="text" id="searchbar" name="searchbar" placeholder="Search.....">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+                </form>
+            </div>
+            <div class="employeePerformance">
+                <table>
+                    <tr id="heading">
+                        <th>Avatar</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Performance</th>
+                    </tr>
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+    
+                        
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+                        
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+                        
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+    
+                        
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+                </table>
+        </div>
+
         <div class="content6">
             <h3>To DO List</h3>
-            <form method="post" action="adminDashboard.php">
+            <form method="post" action="adminDashboard.php" id="taskForm">
                 <input type="text" id="task" name="task" placeholder="Add Task">
                 <button type="submit">Add</button>
                 </form>
-            </div>
 
             <?php
             // Retrieve tasks from database
             $sql = "SELECT * FROM `todolist`";
             $result = $db->query($sql);
-            echo "<div class='output'>";
+            echo "<div class='Tasks'>";
             if ($result->num_rows > 0) {
                 echo "<ul>";
                 $index = 0; // $index is used to give unique identifier
                 while ($row = $result->fetch_assoc()) {
                     $index++;
                     echo "<div class='new'>";
-                    echo "<input type='checkbox' id='check$index' onclick='completeTask($index)'>";
+                    echo "<input type='checkbox' id='tick$index' onclick='completeTask($index)'>";
                     echo "<li id='tasklist$index'>" . $row["task"] . "</li>";
+                    echo "<button type='submit' id='edit'><i class='fa-solid fa-pencil' style='color: #000000;'></i></button>";
                     echo "<button type='submit' id='delete'><i class='fa-solid fa-trash' style='color: #000000;'></i></button>";
                     echo "<br>";
                     echo "</div>";
@@ -161,7 +246,7 @@ if (isset($_POST["task"]) && !empty($_POST["task"])) {
                 echo "</ul>";
                 echo "";
             }
-        echo "</div>";
+            echo "</div>";
         ?>
         </div>
         
