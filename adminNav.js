@@ -3,7 +3,7 @@ function dashboard(){
 }
 
 function edm(){
-    location = "adminEmployeeDataManagement.html";
+    location = "adminEmployeeDataManagement.php";
 }
 
 function addNewEmployee(){
@@ -12,4 +12,8 @@ function addNewEmployee(){
 
 function logout(){
     location = "login.html";
+}
+
+function view(){
+    location = "adminView.html";
 }
