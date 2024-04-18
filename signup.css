@@ -1,124 +1,132 @@
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-.signup{
-    position: relative;
-    top: 120px;
-    left: 37%;
-    height: 400px;
+.signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 400px;
+    height: 600px;
     background-color: rgb(47, 55, 85);
-    border-radius: 19px;
-    box-shadow: 2px 2px 9px 2px #808080;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: #fff;
+    padding: 30px;
 }
 
-h1{
-    padding-left: 34%;
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.nav{
-    display: flex;
-}
-
-button{
-    margin-top: 10px;
-    margin-left: 90px;
-    height: 20px;
-    width: 50px;
-    border-radius: 15px;
-    border: none;
-    box-shadow: 2px 2px 9px 2px #808080;
-}
-
-form{
+form {
     margin-top: 20px;
-    margin-left: 100px;
-}
-form #submit{
-    border-radius: 9px;
-    border: none;
-    box-shadow: 2px 2px 9px 2px #808080;
-    width: 70px;
-    margin-top: 10px;
-    margin-left: 50px;
-    padding-left: 0px;
 }
 
-i{
-    margin-right: 5px;
-}
-
-input{
-    border-radius: 9px;
-    padding-left: 5px;
-    margin-bottom: 5px;
-}
-
-#forgotPassword{
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
-    padding-top: 10px;
-    padding-left: 34%;
+    outline: none;
 }
 
-#forgotPassword:hover{
-    color: rgb(255,0,0);
+form input[type="submit"] {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-p{
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#forgotPassword {
+    text-align: center;
     margin-top: 10px;
-    padding-left: 22%;
 }
 
-.Already{
+#forgotPassword a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#forgotPassword a:hover {
+    color: rgb(255, 0, 0);
+}
+
+.Already {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.login{
-    margin-top: 10px;
+.login {
     margin-left: 10px;
     color: #fff;
+    text-decoration: none;
 }
 
-.login:hover{
+.login:hover {
     color: rgb(47, 0, 255);
 }
 
-.GorF{
+.GorF {
+    text-align: center;
     margin-top: 35px;
-    position: relative;
-    left: 17%;
-    font-size: large;
+}
+
+.line1,
+.line2 {
+    border-top: 1px solid #fff;
+    width: 40%;
+    margin: 0 100px;
+}
+
+.option {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.line1{
-    border-top: 3px solid #fff;
-    width: 70px;
-    margin-top: 12px;
-}
-.line2{
-    border-top: 3px solid #fff;
-    width: 70px;
-    margin-top: 12px;
+.or {
+    color: #fff;
+    margin: 0 10px;
 }
 
-.option{
-    display: flex;
-    margin-top: 15px;
-    margin-left: 40%;    
-}
-.or{
-    padding-left: 10px;
-    padding-right: 10px;
+.google,
+.facebook {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
 }
 
-.google{
-    padding-top: 10px;
+.google:hover,
+.facebook:hover {
+    color: rgb(0, 204, 255);
 }
-.facebook{
-    padding-top: 10px;
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
