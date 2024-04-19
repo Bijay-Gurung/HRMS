@@ -47,7 +47,7 @@
 
         <div class="searchSection">
             <input type="text" id="searchbar" name="searchbar" placeholder="Search....">
-            <button><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+            <button onclick="searchEmployees()"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
         </div>
         <div class="addNewEmployee">
             <button onclick="newEmployee()">Add New Employee</button>
@@ -57,15 +57,22 @@
                 }
             </script>
         </div>
+        <div class="editEmployee">
+        <button onclick="window.location.href = 'adminEditEmployee.php'">Edit Employee</button>
+
+        </div>
+
+        <div class="deleteEmployee">
+        <button onclick="window.location.href = 'adminDeleteEmployee.php'">Delete Employee</button>
+        </div>
 
         <div class="content">
-            <table>
+            <table id="employeeTable">
                 <tr id="heading">
                     <th>Employee Name</th>
                     <th>Branch</th>
                     <th>Role</th>
                     <th>Department</th>
-                    <th>Actions</th>
                 </tr>
                 <?php
                 // Create connection
@@ -77,7 +84,7 @@
                 }
 
                 // Fetch data from the database
-                $sql = "SELECT * FROM table_1"; // Assuming 'employees' is the table name
+                $sql = "SELECT * FROM table_1";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
@@ -89,13 +96,6 @@
                         echo "<td>" . $row['work_location'] . "</td>";
                         echo "<td>" . $row['role'] . "</td>";
                         echo "<td>" . $row['department'] . "</td>";
-                        echo "<td>
-                                <div class='actions'>
-                                    <i class='fa-solid fa-eye' style='color: #ffffff;' onclick='#'></i>
-                                    <i class='fa-solid fa-pencil' style='color: #ffffff;' onclick='editEmployee($employee_id)'></i>
-                                    <i class='fa-solid fa-trash' style='color: #ffffff;' onclick='deleteEmployee($employee_id)'></i>
-                                </div>
-                            </td>";
                         echo "</tr>";
                     }
                 } else {
@@ -116,6 +116,27 @@
             // Redirect to the same page with the action and employee ID as parameters
             window.location.href = 'pageOne.php?id=' + employee_id;
         }
+
+        function searchEmployees() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("searchbar");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("employeeTable");
+                tr = table.getElementsByTagName("tr");
+
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+
     </script>
 
 </body>
