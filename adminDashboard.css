@@ -458,6 +458,8 @@ td button{
 }
 .new{
     display: flex;
+    margin-top: 10px;
+    margin-left: 60px;
 }
 
 .new #tick{
@@ -467,17 +469,26 @@ td button{
 
 .new li{
     list-style-type: none;
-    padding-left: 10px;
+    padding-top: 22px;
+    padding-left: 20px;
 }
 
 .new #edit{
     background-color: #fff;
     color: rgb(47, 55, 85);
     height: 20px;
+    width: 25px;
+    border-radius: 9px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .new #delete{
     background-color: #fff;
     color: rgb(47, 55, 85);
     height: 20px;
+    width: 25px;
+    border-radius: 9px;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }

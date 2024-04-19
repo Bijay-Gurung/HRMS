@@ -1,5 +1,6 @@
 <?php
 $task = "";
+$task = $_POST["task"];
 
 // Database Configuration
 $db_host = 'localhost';
@@ -16,8 +17,6 @@ if ($db->connect_error) {
 }
 
 if (isset($_POST["task"]) && !empty($_POST["task"])) {
-    $task = $_POST["task"];
-
     // Prepare and bind the INSERT statement
     $stmt = $db->prepare("INSERT INTO todolist (task) VALUES (?)");
     $stmt->bind_param('s', $task);
@@ -31,6 +30,34 @@ if (isset($_POST["task"]) && !empty($_POST["task"])) {
 }
 ?>
 
+<?php
+// Deleting Files
+
+$db_host = 'localhost';
+$db_username = 'root';
+$db_pass = '';
+$db_name = 'HRMS';
+
+$db = new mysqli($db_host,$db_username,$db_pass,$db_name);
+
+if ($db -> connect_error){
+    die("Connection failed". $db->connect_error);
+}
+
+if (isset($_POST["delete_task"])){
+    $task_id = $_POST["delete_task"];
+
+
+    $stmt = $db->prepare("DELETE FROM todolist WHERE id = ?");
+    $stmt->bind_param('i',$task_id);
+
+    if ($stmt->execute()){
+        echo "<script> alert('Task Deleted Successfully');</script>";
+    } else {
+        echo "<script> alert('Deletion failed: " . $db->error . "');</script>";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -221,7 +248,7 @@ if (isset($_POST["task"]) && !empty($_POST["task"])) {
         <div class="content6">
             <h3>To DO List</h3>
             <form method="post" action="adminDashboard.php" id="taskForm">
-                <input type="text" id="task" name="task" placeholder="Add Task">
+                <input type="text" id="task" name="task" placeholder="Add Task" required>
                 <button type="submit">Add</button>
                 </form>
 
@@ -239,7 +266,10 @@ if (isset($_POST["task"]) && !empty($_POST["task"])) {
                     echo "<input type='checkbox' id='tick$index' onclick='completeTask($index)'>";
                     echo "<li id='tasklist$index'>" . $row["task"] . "</li>";
                     echo "<button type='submit' id='edit'><i class='fa-solid fa-pencil' style='color: #000000;'></i></button>";
-                    echo "<button type='submit' id='delete'><i class='fa-solid fa-trash' style='color: #000000;'></i></button>";
+                    echo "<form method='post' style='display: inline;'>";
+                    echo "<input type='hidden' name='delete_task' value='" . $row["id"] . "'>";
+                    echo "<button type='submit' id='delete' name='delete_btn'><i class='fa-solid fa-trash' style='color: #000000;'></i></button>";
+                    echo "</form>";
                     echo "<br>";
                     echo "</div>";
                 }
