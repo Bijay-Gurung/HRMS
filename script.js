@@ -11,3 +11,16 @@ function completeTask(index){
     localStorage.setItem("checkbox"+index,checkerBox.checked);
 }
 
+function editTask(id) {
+    const modals = document.getElementById('edit');
+    const editedTaskInput = document.getElementById('edited_task');
+    document.getElementById('edit_task_id').value = id;
+    modals.style.display = 'block';
+}
+editTask();
+
+function closeEditModal() {
+    const modals = document.getElementById('edit');
+    modals.style.display = 'none';
+}
+closeEditModal();

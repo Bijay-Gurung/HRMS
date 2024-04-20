@@ -1,7 +1,5 @@
 <?php
 $task = "";
-$task = $_POST["task"];
-
 // Database Configuration
 $db_host = 'localhost';
 $db_username = 'root';
@@ -16,48 +14,52 @@ if ($db->connect_error) {
     die("Connection failed" . $db->connect_error);
 }
 
-if (isset($_POST["task"]) && !empty($_POST["task"])) {
-    // Prepare and bind the INSERT statement
-    $stmt = $db->prepare("INSERT INTO todolist (task) VALUES (?)");
-    $stmt->bind_param('s', $task);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["task"]) && !empty($_POST["task"])) {
+        // Prepare and bind the INSERT statement
+        $task = $_POST["task"];
+        $stmt = $db->prepare("INSERT INTO todolist (task) VALUES (?)");
+        $stmt->bind_param('s', $task);
+        // Execute the statement
+        if ($stmt->execute()) {
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
+        } else {
+            echo "<script>alert('Insertion failed: " . $db->error . "');</script>";
+        }
+    }
 
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "<script>alert('Task Added Successfully');</script>";
-    } else {
-        echo "<script>alert('Insertion failed: " . $db->error . "');</script>";
+    if (isset($_POST["delete_task"])){
+        $task_id = $_POST["delete_task"];
+
+        $stmt = $db->prepare("DELETE FROM todolist WHERE id = ?");
+        $stmt->bind_param('i',$task_id);
+
+        if ($stmt->execute()){
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
+        } else {
+            echo "<script> alert('Deletion failed: " . $db->error . "');</script>";
+        }
+    }
+
+    if (isset($_POST["edit_task"])){
+        $task_id = $_POST["edit_task"];
+        $edited_task = $_POST["edited_task"];
+
+        $stmt = $db->prepare("UPDATE todolist SET task = ? WHERE id = ?");
+        $stmt->bind_param('si', $edited_task, $task_id);
+
+        if ($stmt->execute()){
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
+        } else {
+            echo "<script> alert('Edit failed: " . $db->error . "');</script>";
+        }
     }
 }
 ?>
 
-<?php
-// Deleting Files
-
-$db_host = 'localhost';
-$db_username = 'root';
-$db_pass = '';
-$db_name = 'HRMS';
-
-$db = new mysqli($db_host,$db_username,$db_pass,$db_name);
-
-if ($db -> connect_error){
-    die("Connection failed". $db->connect_error);
-}
-
-if (isset($_POST["delete_task"])){
-    $task_id = $_POST["delete_task"];
-
-
-    $stmt = $db->prepare("DELETE FROM todolist WHERE id = ?");
-    $stmt->bind_param('i',$task_id);
-
-    if ($stmt->execute()){
-        echo "<script> alert('Task Deleted Successfully');</script>";
-    } else {
-        echo "<script> alert('Deletion failed: " . $db->error . "');</script>";
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -246,40 +248,51 @@ if (isset($_POST["delete_task"])){
         </div>
 
         <div class="content6">
-            <h3>To DO List</h3>
-            <form method="post" action="adminDashboard.php" id="taskForm">
-                <input type="text" id="task" name="task" placeholder="Add Task" required>
-                <button type="submit">Add</button>
-                </form>
+    <h3>To DO List</h3>
+    <form method="post" action="adminDashboard.php" id="taskForm">
+        <input type="text" id="task" name="task" placeholder="Add Task" required>
+        <button type="submit" onclick="addTask()">Add</button>
+    </form>
 
-            <?php
-            // Retrieve tasks from database
-            $sql = "SELECT * FROM `todolist`";
-            $result = $db->query($sql);
-            echo "<div class='Tasks'>";
-            if ($result->num_rows > 0) {
-                echo "<ul>";
-                $index = 0; // $index is used to give unique identifier
-                while ($row = $result->fetch_assoc()) {
-                    $index++;
-                    echo "<div class='new'>";
-                    echo "<input type='checkbox' id='tick$index' onclick='completeTask($index)'>";
-                    echo "<li id='tasklist$index'>" . $row["task"] . "</li>";
-                    echo "<button type='submit' id='edit'><i class='fa-solid fa-pencil' style='color: #000000;'></i></button>";
-                    echo "<form method='post' style='display: inline;'>";
-                    echo "<input type='hidden' name='delete_task' value='" . $row["id"] . "'>";
-                    echo "<button type='submit' id='delete' name='delete_btn'><i class='fa-solid fa-trash' style='color: #000000;'></i></button>";
-                    echo "</form>";
-                    echo "<br>";
-                    echo "</div>";
-                }
-                echo "</ul>";
-                echo "";
-            }
+    <?php
+    $sql = "SELECT * FROM `todolist`";
+    $result = $db->query($sql);
+    echo "<div class='Tasks'>";
+    if ($result->num_rows > 0) {
+        echo "<ul>";
+        $index = 0; 
+        while ($row = $result->fetch_assoc()) {
+            $index++;
+            echo "<div class='new'>";
+            echo "<input type='checkbox' id='tick$index' onclick='completeTask($index)'>";
+            echo "<li id='tasklist$index'>" . $row["task"] . "</li>";
+            echo "<button type='button' class='editbtn' onclick='editTask(" . $row['id'] . ")'><i class='fa-solid fa-pencil' style='color: #000000;'></i></button>";
+            
+            echo "<form method='post' style='display: inline;'>";
+            echo "<input type='hidden' name='delete_task' value='" . $row["id"] . "'>";
+            echo "<button type='submit' id='delete' name='delete_btn'><i class='fa-solid fa-trash' style='color: #000000;'></i></button>";
+            echo "</form>";
+            echo "<br>";
             echo "</div>";
-        ?>
+        }
+        echo "</ul>";
+        echo "";
+    }
+    echo "</div>";
+    ?>
+</div>
+
+<div class="EditSection" id="edit" role="dialog">
+            <form method='post' style='display: inline;'>
+                <input type='hidden' id='edit_task_id' name='edit_task' value=''>
+                <input type='text' id='edited_task' name='edited_task' placeholder='Edit Task' required>
+                <button type='submit' id='edit' name='edit_btn'><i class='fa-solid fa-pencil' style='color: #ffff;'></i></button>
+            </form>
+
+            <div class="footer">
+                <button id="close1" onclick="closeEditModal()">Close</button>
+            </div>
         </div>
-        
     </section>
 
     <script src="script.js"></script>

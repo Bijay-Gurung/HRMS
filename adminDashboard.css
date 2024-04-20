@@ -473,7 +473,7 @@ td button{
     padding-left: 20px;
 }
 
-.new #edit{
+.new .editbtn{
     background-color: #fff;
     color: rgb(47, 55, 85);
     height: 20px;
@@ -491,4 +491,55 @@ td button{
     border-radius: 9px;
     margin-left: 20px;
     margin-bottom: 20px;
+}
+
+.EditSection{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+#edited_task{
+    border-radius: 9px;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border: none;
+    height: 25px;
+    width: 200px;
+    position: relative;
+    top: 30%;
+    left: 37%;
+    padding-left: 10px;
+}
+
+.EditSection form button{
+    border-radius: 9px;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border: none;
+    height: 25px;
+    width: 80px;
+    position: relative;
+    top: 30%;
+    left: 32%;
+    margin-left: 90px;
+}
+
+.EditSection .footer button{
+    position: relative;
+    top: 250px;
+    left: 51%;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border: none;
+    height: 25px;
+    width: 80px;
+    border-radius: 9px;
 }
