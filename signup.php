@@ -51,60 +51,33 @@
     </div>
 
     <?php
-// Create connection
-$conn = mysqli_connect("localhost", "root", "", "HRMS");
+    // Create connection
+    $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Process form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $message = ""; // Initialize message variable
-
-    // Validation for username (should be a string)
-    if (!preg_match("/^[a-zA-Z ]*$/", $username)) {
-        $message .= "Username should contain only letters and white spaces. ";
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Validation for email (should be a valid email format)
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $message .= "Invalid email format. ";
-    }
+    // Process form submission
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-    // Validation for password
-    if (strlen($password) < 8) {
-        $message .= "Password must be at least 8 characters long. ";
-    } elseif (!preg_match('/[A-Za-z]/', $password) || !preg_match('/\d/', $password) || !preg_match('/[^A-Za-z\d]/', $password)) {
-        $message .= "Password must contain at least one letter, one number, and one special character. ";
-    }
-
-    // If there are no validation errors, proceed with inserting data into the database
-    if (empty($message)) {
         // Insert user data into database
         $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
 
         if (mysqli_query($conn, $sql)) {
             // Set success message
             echo "<script>alert('Sign up Successfully'); window.location.href = 'login.php';</script>";
-            // Reset form fields
-            $_POST['username'] = $_POST['email'] = $_POST['password'] = "";
         } else {
-            $message = "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-    } else {
-        // Show alert for validation errors
-        echo "<script>alert('$message');</script>";
     }
-}
 
-mysqli_close($conn);
-?>
-
+    mysqli_close($conn);
+    ?>
 
     <script>
         function back(){

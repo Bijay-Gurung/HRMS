@@ -62,7 +62,7 @@
             $row = mysqli_fetch_assoc($result);
             // Data will be populated in the input fields based on the retrieved row
         } else {
-            echo "No results found for the given name.";
+            echo "<script>alert('No results found for the given name.');</script>";
         }
 
         mysqli_close($conn);
