@@ -96,37 +96,21 @@
             $salary = validateInput($_POST['salary']);
             $role = validateInput($_POST['role']);
 
-            // Handle image upload
-            $file_temp = $_FILES['pp']['tmp_name'];
-            $file_type = $_FILES['pp']['type'];
-            $file_size = $_FILES['pp']['size'];
+            // Replace "table_1" with the correct table name in your database
+            $sql = "INSERT INTO table_1 (fullname, address, contact, martial_status, emergency_name, emergency_address, emergency_contact, title, department, supervisor, work_location, start_date, salary, role) 
+            VALUES ('$fullname', '$address', '$contact', '$martialStatus', '$emergencyName', '$emergencyAddress', '$emergencyContact', '$title', '$department', '$supervisor', '$workLocation', '$startDate', '$salary', '$role')";
 
-            // Validate uploaded image
-            if ($file_size > 500000) { // 500 KB maximum size
-                $error = "File size is too large. Please upload an image smaller than 500 KB.";
-            } elseif (!in_array($file_type, array("image/jpeg", "image/png"))) {
-                $error = "Only JPEG and PNG images are allowed.";
-            } elseif (!preg_match('/^\d{10}$/', $contact)) { // Validate contact number format
-                $error = "Contact number must be exactly 10 digits.";
+            if (mysqli_query($conn, $sql)) {
+                // Success message
+                $message = "New record created successfully";
+                // Reset form fields
+                $_POST['fullname'] = $_POST['address'] = $_POST['contact'] = $_POST['martialStatus'] = $_POST['name'] = $_POST['emergencyAddress'] = $_POST['emergencyContact'] = $_POST['title'] = $_POST['department'] = $_POST['supervisor'] = $_POST['workLocation'] = $_POST['startDate'] = $_POST['salary'] = $_POST['role'] = "";
+                // Redirect to the next page
+                header("Location: pageTwo.php");
+                exit;
             } else {
-                $image_data = addslashes(file_get_contents($file_temp)); // Read file content as binary
-
-                // Replace "table_1" with the correct table name in your database
-                $sql = "INSERT INTO table_1 (fullname, address, contact, martial_status, emergency_name, emergency_address, emergency_contact, title, department, supervisor, work_location, start_date, salary, role, image_data) 
-                VALUES ('$fullname', '$address', '$contact', '$martialStatus', '$emergencyName', '$emergencyAddress', '$emergencyContact', '$title', '$department', '$supervisor', '$workLocation', '$startDate', '$salary', '$role', '$image_data')";
-
-                if (mysqli_query($conn, $sql)) {
-                    // Success message
-                    $message = "New record created successfully";
-                    // Reset form fields
-                    $_POST['fullname'] = $_POST['address'] = $_POST['contact'] = $_POST['martialStatus'] = $_POST['name'] = $_POST['emergencyAddress'] = $_POST['emergencyContact'] = $_POST['title'] = $_POST['department'] = $_POST['supervisor'] = $_POST['workLocation'] = $_POST['startDate'] = $_POST['salary'] = $_POST['role'] = "";
-                    // Redirect to the next page
-                    header("Location: pageTwo.php");
-                    exit;
-                } else {
-                    // Error message
-                    $error = "Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
+                // Error message
+                $error = "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
         }
 
