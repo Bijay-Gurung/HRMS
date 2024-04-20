@@ -74,23 +74,20 @@
                     <th>Role</th>
                     <th>Department</th>
                 </tr>
+
                 <?php
-                // Create connection
                 $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-                // Check connection
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                // Fetch data from the database
                 $sql = "SELECT * FROM table_1";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
-                    // Output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
-                        $employee_id = $row['id']; // Assuming 'id' is the column name for the employee ID
+                        $employee_id = $row['id'];
                         echo "<tr>";
                         echo "<td>" . $row['fullname'] . "</td>";
                         echo "<td>" . $row['work_location'] . "</td>";
@@ -102,7 +99,6 @@
                     echo "<tr><td colspan='5'>No employees found</td></tr>";
                 }
 
-                // Close connection
                 mysqli_close($conn);
                 ?>
             </table>
@@ -113,7 +109,6 @@
 
     <script>
         function editEmployee(employee_id) {
-            // Redirect to the same page with the action and employee ID as parameters
             window.location.href = 'pageOne.php?id=' + employee_id;
         }
 

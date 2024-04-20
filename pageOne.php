@@ -66,19 +66,15 @@
     <footer></footer>
 
     <?php
-        session_start(); // Start session to store user login status
+        session_start();
 
-        // Create connection
         $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-        // Check connection
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        // Process form submission
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Validate Personal Details
             $fullname = validateInput($_POST['fullname']);
             $address = validateInput($_POST['address']);
             $contact = validateInput($_POST['contact']);
@@ -87,7 +83,6 @@
             $emergencyAddress = validateInput($_POST['emergencyAddress']);
             $emergencyContact = validateInput($_POST['emergencyContact']);
 
-            // Validate Job Information
             $title = validateInput($_POST['title']);
             $department = validateInput($_POST['department']);
             $supervisor = validateInput($_POST['supervisor']);
@@ -96,25 +91,35 @@
             $salary = validateInput($_POST['salary']);
             $role = validateInput($_POST['role']);
 
-            // Replace "table_1" with the correct table name in your database
-            $sql = "INSERT INTO table_1 (fullname, address, contact, martial_status, emergency_name, emergency_address, emergency_contact, title, department, supervisor, work_location, start_date, salary, role) 
-            VALUES ('$fullname', '$address', '$contact', '$martialStatus', '$emergencyName', '$emergencyAddress', '$emergencyContact', '$title', '$department', '$supervisor', '$workLocation', '$startDate', '$salary', '$role')";
+            $file_temp = $_FILES['pp']['tmp_name'];
+            $file_type = $_FILES['pp']['type'];
+            $file_size = $_FILES['pp']['size'];
 
-            if (mysqli_query($conn, $sql)) {
-                // Success message
-                $message = "New record created successfully";
-                // Reset form fields
-                $_POST['fullname'] = $_POST['address'] = $_POST['contact'] = $_POST['martialStatus'] = $_POST['name'] = $_POST['emergencyAddress'] = $_POST['emergencyContact'] = $_POST['title'] = $_POST['department'] = $_POST['supervisor'] = $_POST['workLocation'] = $_POST['startDate'] = $_POST['salary'] = $_POST['role'] = "";
-                // Redirect to the next page
-                header("Location: pageTwo.php");
-                exit;
+            if ($file_size > 500000) { 
+                $error = "File size is too large. Please upload an image smaller than 500 KB.";
+            } elseif (!in_array($file_type, array("image/jpeg", "image/png"))) {
+                $error = "Only JPEG and PNG images are allowed.";
+            } elseif (!preg_match('/^\d{10}$/', $contact)) { 
+                $error = "Contact number must be exactly 10 digits.";
             } else {
-                // Error message
-                $error = "Error: " . $sql . "<br>" . mysqli_error($conn);
+                $image_data = addslashes(file_get_contents($file_temp));
+
+                $sql = "INSERT INTO table_1 (fullname, address, contact, martial_status, emergency_name, emergency_address, emergency_contact, title, department, supervisor, work_location, start_date, salary, role, image_data) 
+                VALUES ('$fullname', '$address', '$contact', '$martialStatus', '$emergencyName', '$emergencyAddress', '$emergencyContact', '$title', '$department', '$supervisor', '$workLocation', '$startDate', '$salary', '$role', '$image_data')";
+
+                if (mysqli_query($conn, $sql)) {
+                    $message = "New record created successfully";
+                    
+                    $_POST['fullname'] = $_POST['address'] = $_POST['contact'] = $_POST['martialStatus'] = $_POST['name'] = $_POST['emergencyAddress'] = $_POST['emergencyContact'] = $_POST['title'] = $_POST['department'] = $_POST['supervisor'] = $_POST['workLocation'] = $_POST['startDate'] = $_POST['salary'] = $_POST['role'] = "";
+                    
+                    header("Location: pageTwo.php");
+                    exit;
+                } else {
+                    $error = "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
             }
         }
 
-        // Function to validate input data
         function validateInput($data) {
             $data = trim($data);
             $data = stripslashes($data);

@@ -50,42 +50,33 @@
 
         <?php
         session_start(); 
-        // Create connection
         $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-        // Check connection
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        // Process login form submission
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            // Validation for email (should be a valid email format)
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $error = "Invalid email format";
             } else {
-                // Check if user exists in the database
                 $sql = "SELECT * FROM users WHERE email='$email'";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) == 1) {
                     $row = mysqli_fetch_assoc($result);
-                    // Verify password
                     if ($row['password'] === $password) {
-                        // Password matches, set session and redirect to dashboard or home page
                         $_SESSION['loggedin'] = true;
-                        // You may store more user information in session if needed
                         echo "<script>alert('Login Successfully'); window.location.href = 'adminDashboard.php';</script>";
                         exit;
                     } else {
-                        // Password doesn't match, show error message
                         $error = "Invalid password. Please try again.";
                     }
                 } else {
-                    // User not found, show error message
                     $error = "User with this email does not exist. Please sign up.";
                 }
             }

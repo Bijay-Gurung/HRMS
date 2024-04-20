@@ -1,14 +1,11 @@
 <?php
-// Database Configuration
 $db_host = 'localhost';
 $db_username = 'root';
 $db_pass = '';
 $db_name = 'HRMS';
 
-// Database connection
 $db = new mysqli($db_host, $db_username, $db_pass, $db_name);
 
-// Check Database Connection
 if ($db->connect_error) {
     die("Connection failed" . $db->connect_error);
 }
@@ -16,11 +13,9 @@ if ($db->connect_error) {
 if (isset($_POST["task"]) && !empty($_POST["task"])) {
     $task = $_POST["task"];
 
-    // Prepare and bind the INSERT statement
     $stmt = $db->prepare("INSERT INTO todolist (task) VALUES (?)");
     $stmt->bind_param('s', $task);
 
-    // Execute the statement
     if ($stmt->execute()) {
         echo "<script>alert('Task Added Successfully');</script>";
     } else {
@@ -142,13 +137,12 @@ if (isset($_POST["task"]) && !empty($_POST["task"])) {
             </div>
 
             <?php
-            // Retrieve tasks from database
             $sql = "SELECT * FROM `todolist`";
             $result = $db->query($sql);
             echo "<div class='output'>";
             if ($result->num_rows > 0) {
                 echo "<ul>";
-                $index = 0; // $index is used to give unique identifier
+                $index = 0;
                 while ($row = $result->fetch_assoc()) {
                     $index++;
                     echo "<div class='new'>";

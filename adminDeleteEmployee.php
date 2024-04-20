@@ -17,7 +17,7 @@
             margin: 0 10px;
             border: none;
             border-radius: 5px;
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50; 
             color: white;
             font-size: 16px;
             cursor: pointer;
@@ -25,7 +25,7 @@
         }
 
         .bottom-buttons button:hover {
-            background-color: #45a049; /* Darker green */
+            background-color: #45a049; 
         }
 
         .bottom-buttons a.button {
@@ -34,7 +34,7 @@
             margin: 0 10px;
             border: none;
             border-radius: 5px;
-            background-color: #f44336; /* Red */
+            background-color: #f44336;
             color: white;
             font-size: 16px;
             text-decoration: none;
@@ -74,67 +74,57 @@
 
     
     <?php
-// Initialize $row as an empty array if it's not set
-$row = [];
+    $row = [];
 
-// Function to validate input data
-function validateInput($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['search'])) {
-    $conn = mysqli_connect("localhost", "root", "", "HRMS");
-
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+    function validateInput($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 
-    // Retrieve the search query
-    $search_query = $_GET['search'];
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['search'])) {
+        $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-    // Perform a database query to retrieve data based on the name
-    $sql = "SELECT * FROM table_1 WHERE fullname LIKE '%$search_query%'";
-    $result = mysqli_query($conn, $sql);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
-    // Check if any rows were returned
-    if (mysqli_num_rows($result) > 0) {
-        // Output data of the first row
-        $row = mysqli_fetch_assoc($result);
-        // Data will be populated in the input fields based on the retrieved row
-    } else {
-        echo "No results found for the given name.";
+        $search_query = $_GET['search'];
+
+        $sql = "SELECT * FROM table_1 WHERE fullname LIKE '%$search_query%'";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+        } else {
+            echo "No results found for the given name.";
+        }
+
+        mysqli_close($conn);
     }
 
-    mysqli_close($conn);
-}
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
+        $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
-    $conn = mysqli_connect("localhost", "root", "", "HRMS");
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+        $fullname = validateInput($_POST['fullname']);
+
+        $sql = "DELETE FROM table_1 WHERE fullname='$fullname'";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Record deleted successfully'); window.location.href = 'adminEmployeeDataManagement.php';</script>";
+            exit;
+        } else {
+            echo "Error deleting record: " . mysqli_error($conn);
+        }
+
+        mysqli_close($conn);
     }
-
-    $fullname = validateInput($_POST['fullname']);
-
-    // Delete the record
-    $sql = "DELETE FROM table_1 WHERE fullname='$fullname'";
-
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Record deleted successfully'); window.location.href = 'adminEmployeeDataManagement.php';</script>";
-        exit;
-    } else {
-        echo "Error deleting record: " . mysqli_error($conn);
-    }
-
-    mysqli_close($conn);
-}
-?>
+    ?>
 
 
     <section>
