@@ -5,6 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Human Resource Management System</title>
     <link href="pageOne.css" rel="stylesheet">
+    <style>
+        .bottom-buttons {
+            text-align: center;
+            margin-top: 450px;
+            margin-right: 100px;
+        }
+
+        .bottom-buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .bottom-buttons button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+
+        .bottom-buttons a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f44336; /* Red */
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .bottom-buttons a.button:hover {
+            background-color: #d32f2f; 
+        }
+
+
+    </style>
 </head>
 <body>
     <header>
@@ -29,98 +72,70 @@
         </form>
     </div>
 
+    
     <?php
-    // Initialize $row as an empty array if it's not set
-    $row = [];
+// Initialize $row as an empty array if it's not set
+$row = [];
 
-    // Function to validate input data
-    function validateInput($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
+// Function to validate input data
+function validateInput($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['search'])) {
+    $conn = mysqli_connect("localhost", "root", "", "HRMS");
+
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['search'])) {
-        $conn = mysqli_connect("localhost", "root", "", "HRMS");
+    // Retrieve the search query
+    $search_query = $_GET['search'];
 
-        // Check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+    // Perform a database query to retrieve data based on the name
+    $sql = "SELECT * FROM table_1 WHERE fullname LIKE '%$search_query%'";
+    $result = mysqli_query($conn, $sql);
 
-        // Retrieve the search query
-        $search_query = $_GET['search'];
-
-        // Perform a database query to retrieve data based on the name
-        $sql = "SELECT * FROM table_1 WHERE fullname LIKE '%$search_query%'";
-        $result = mysqli_query($conn, $sql);
-
-        // Check if any rows were returned
-        if (mysqli_num_rows($result) > 0) {
-            // Output data of the first row
-            $row = mysqli_fetch_assoc($result);
-            // Data will be populated in the input fields based on the retrieved row
-        } else {
-            echo "No results found for the given name.";
-        }
-
-        mysqli_close($conn);
+    // Check if any rows were returned
+    if (mysqli_num_rows($result) > 0) {
+        // Output data of the first row
+        $row = mysqli_fetch_assoc($result);
+        // Data will be populated in the input fields based on the retrieved row
+    } else {
+        echo "No results found for the given name.";
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $conn = mysqli_connect("localhost", "root", "", "HRMS");
+    mysqli_close($conn);
+}
 
-        // Check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
+    $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-        $id = validateInput($_POST['id']);
-        $fullname = validateInput($_POST['fullname']);
-        $address = validateInput($_POST['address']);
-        $contact = validateInput($_POST['contact']);
-        $martialStatus = validateInput($_POST['martialStatus']);
-        $emergencyName = validateInput($_POST['name']);
-        $emergencyAddress = validateInput($_POST['emergencyAddress']);
-        $emergencyContact = validateInput($_POST['emergencyContact']);
-        $title = validateInput($_POST['title']);
-        $department = validateInput($_POST['department']);
-        $supervisor = validateInput($_POST['supervisor']);
-        $workLocation = validateInput($_POST['workLocation']);
-        $startDate = validateInput($_POST['startDate']);
-        $salary = validateInput($_POST['salary']);
-        $role = validateInput($_POST['role']);
-
-        // Handle image upload
-        $file_temp = $_FILES['pp']['tmp_name'];
-        $file_type = $_FILES['pp']['type'];
-        $file_size = $_FILES['pp']['size'];
-
-        // Validate uploaded image
-        if ($file_size > 500000) { // 500 KB maximum size
-            $error = "File size is too large. Please upload an image smaller than 500 KB.";
-        } elseif (!in_array($file_type, array("image/jpeg", "image/png"))) {
-            $error = "Only JPEG and PNG images are allowed.";
-        } elseif (!preg_match('/^\d{10}$/', $contact)) { // Validate contact number format
-            $error = "Contact number must be exactly 10 digits.";
-        } else {
-            $image_data = addslashes(file_get_contents($file_temp)); // Read file content as binary
-
-            // Update the database
-            $sql = "UPDATE table_1 SET fullname='$fullname', address='$address', contact='$contact', martial_status='$martialStatus', emergency_name='$emergencyName', emergency_address='$emergencyAddress', emergency_contact='$emergencyContact', title='$title', department='$department', supervisor='$supervisor', work_location='$workLocation', start_date='$startDate', salary='$salary', role='$role', image_data='$image_data' WHERE fullname='$fullname'";
-
-            if (mysqli_query($conn, $sql)) {
-                echo "<script>alert('Record updated successfully'); window.location.href = 'adminEmployeeDataManagement.php';</script>";
-                exit;
-            } else {
-                echo "Error updating record: " . mysqli_error($conn);
-            }
-        }
-
-        mysqli_close($conn);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
-    ?>
+
+    $fullname = validateInput($_POST['fullname']);
+
+    // Delete the record
+    $sql = "DELETE FROM table_1 WHERE fullname='$fullname'";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('Record deleted successfully'); window.location.href = 'adminEmployeeDataManagement.php';</script>";
+        exit;
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
+}
+?>
+
 
     <section>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
@@ -142,16 +157,18 @@
                     <input type="text" id="emergencyAddress" name="emergencyAddress" placeholder="Emergency Address" value="<?php echo isset($row['emergency_address']) ? $row['emergency_address'] : ''; ?>" required><br>
                     <input type="text" id="emergencyContact" name="emergencyContact" placeholder="Emergency Contact" value="<?php echo isset($row['emergency_contact']) ? $row['emergency_contact'] : ''; ?>" required>
                 </div>
-
-                <div class="next">
-                    <button type="submit">Update</button>
-                </div>
             </div>
+
+            </div>
+                <div class="bottom-buttons">
+                <a href="adminEmployeeDataManagement.php" class="button">Back</a>
+                <button type="submit" name="delete">Delete</button>
+            </div>
+
             
             <div class="right">
                 <div class="jobInformation">
                     <h3>Job Information</h3>
-                    <label for="image_data">Image Data</label><br>
                     <input type="text" id="title" name="title" placeholder="Title" value="<?php echo isset($row['title']) ? $row['title'] : ''; ?>" required><br>
                     <input type="text" id="department" name="department" placeholder="Department" value="<?php echo isset($row['department']) ? $row['department'] : ''; ?>" required><br>
                     <input type="text" id="supervisor" name="supervisor" placeholder="Supervisor" value="<?php echo isset($row['supervisor']) ? $row['supervisor'] : ''; ?>" required><br>
@@ -160,7 +177,7 @@
                     <input type="text" id="salary" name="salary" placeholder="Salary" value="<?php echo isset($row['salary']) ? $row['salary'] : ''; ?>" required><br>
                     <input type="text" id="role" name="role" placeholder="Role" value="<?php echo isset($row['role']) ? $row['role'] : ''; ?>" required>
                 </div>
-            </div>
+          
         </form>
     </section>
     <footer></footer>
