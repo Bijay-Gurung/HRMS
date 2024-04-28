@@ -1,29 +1,64 @@
 <?php
+$task = "";
+// Database Configuration
 $db_host = 'localhost';
 $db_username = 'root';
 $db_pass = '';
 $db_name = 'HRMS';
 
+// Database connection
 $db = new mysqli($db_host, $db_username, $db_pass, $db_name);
 
+// Check Database Connection
 if ($db->connect_error) {
     die("Connection failed" . $db->connect_error);
 }
 
-if (isset($_POST["task"]) && !empty($_POST["task"])) {
-    $task = $_POST["task"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["task"]) && !empty($_POST["task"])) {
+        // Prepare and bind the INSERT statement
+        $task = $_POST["task"];
+        $stmt = $db->prepare("INSERT INTO todolist (task) VALUES (?)");
+        $stmt->bind_param('s', $task);
+        // Execute the statement
+        if ($stmt->execute()) {
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
+        } else {
+            echo "<script>alert('Insertion failed: " . $db->error . "');</script>";
+        }
+    }
 
-    $stmt = $db->prepare("INSERT INTO todolist (task) VALUES (?)");
-    $stmt->bind_param('s', $task);
+    if (isset($_POST["delete_task"])){
+        $task_id = $_POST["delete_task"];
 
-    if ($stmt->execute()) {
-        echo "<script>alert('Task Added Successfully');</script>";
-    } else {
-        echo "<script>alert('Insertion failed: " . $db->error . "');</script>";
+        $stmt = $db->prepare("DELETE FROM todolist WHERE id = ?");
+        $stmt->bind_param('i',$task_id);
+
+        if ($stmt->execute()){
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
+        } else {
+            echo "<script> alert('Deletion failed: " . $db->error . "');</script>";
+        }
+    }
+
+    if (isset($_POST["edit_task"])){
+        $task_id = $_POST["edit_task"];
+        $edited_task = $_POST["edited_task"];
+
+        $stmt = $db->prepare("UPDATE todolist SET task = ? WHERE id = ?");
+        $stmt->bind_param('si', $edited_task, $task_id);
+
+        if ($stmt->execute()){
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit();
+        } else {
+            echo "<script> alert('Edit failed: " . $db->error . "');</script>";
+        }
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -128,35 +163,134 @@ if (isset($_POST["task"]) && !empty($_POST["task"])) {
             </div>
         </div>
 
-        <div class="content6">
-            <h3>To DO List</h3>
-            <form method="post" action="adminDashboard.php">
-                <input type="text" id="task" name="task" placeholder="Add Task">
-                <button type="submit">Add</button>
+        
+        <div class="content5">
+            <div class="searchSection">
+                <form method="post">
+                    <input type="text" id="searchbar" name="searchbar" placeholder="Search.....">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
                 </form>
             </div>
+            <div class="employeePerformance">
+                <table>
+                    <tr id="heading">
+                        <th>Avatar</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Performance</th>
+                    </tr>
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+    
+                        
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+                        
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+                        
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+    
+                        
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
 
-            <?php
-            $sql = "SELECT * FROM `todolist`";
-            $result = $db->query($sql);
-            echo "<div class='output'>";
-            if ($result->num_rows > 0) {
-                echo "<ul>";
-                $index = 0;
-                while ($row = $result->fetch_assoc()) {
-                    $index++;
-                    echo "<div class='new'>";
-                    echo "<input type='checkbox' id='check$index' onclick='completeTask($index)'>";
-                    echo "<li id='tasklist$index'>" . $row["task"] . "</li>";
-                    echo "<button type='submit' id='delete'><i class='fa-solid fa-trash' style='color: #000000;'></i></button>";
-                    echo "<br>";
-                    echo "</div>";
-                }
-                echo "</ul>";
-                echo "";
-            }
-        echo "</div>";
-        ?>
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+
+                        <tr id="data1">
+                            <td><img src="./Images/Bijay.jpg" height="40px" width="40px"></td>
+                            <td>Bijay Gurung</td>
+                            <td>Fullstack Developer</td>
+                            <td><button>Excellent</button></td>
+                        </tr>
+                </table>
+        </div>
+
+        <div class="content6">
+    <h3>To DO List</h3>
+    <form method="post" action="adminDashboard.php" id="taskForm">
+        <input type="text" id="task" name="task" placeholder="Add Task" required>
+        <button type="submit" onclick="addTask()">Add</button>
+    </form>
+
+    <?php
+    $sql = "SELECT * FROM todolist";
+    $result = $db->query($sql);
+    echo "<div class='Tasks'>";
+    if ($result->num_rows > 0) {
+        echo "<ul>";
+        $index = 0; 
+        while ($row = $result->fetch_assoc()) {
+            $index++;
+            echo "<div class='new'>";
+            echo "<input type='checkbox' id='tick$index' onclick='completeTask($index)'>";
+            echo "<li id='tasklist$index'>" . $row["task"] . "</li>";
+            echo "<button type='button' class='editbtn' onclick='editTask(" . $row['id'] . ")'><i class='fa-solid fa-pencil' style='color: #000000;'></i></button>";
+
+            echo "<form method='post' style='display: inline;'>";
+            echo "<input type='hidden' name='delete_task' value='" . $row["id"] . "'>";
+            echo "<button type='submit' id='delete' name='delete_btn'><i class='fa-solid fa-trash' style='color: #000000;'></i></button>";
+            echo "</form>";
+            echo "<br>";
+            echo "</div>";
+        }
+        echo "</ul>";
+        echo "";
+    }
+    echo "</div>";
+    ?>
+</div>
+
+<div class="EditSection" id="edit" role="dialog">
+            <form method='post' style='display: inline;'>
+                <input type='hidden' id='edit_task_id' name='edit_task' value=''>
+                <input type='text' id='edited_task' name='edited_task' placeholder='Edit Task' required>
+                <button type='submit' id='edit' name='edit_btn'><i class='fa-solid fa-pencil' style='color: #ffff;'></i></button>
+            </form>
+
+            <div class="footer">
+                <button id="close1" onclick="closeEditModal()">Close</button>
+            </div>
         </div>
         
     </section>

@@ -1,0 +1,153 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+#logo{
+    height: 45px;
+    width: 45px;
+    background-image: url(./Images/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 90px;
+}
+#logoName{
+    font-size: small;
+    padding-left: 3px;
+    color: #fff;
+}
+
+nav{
+    margin-top: 20px;
+    margin-left: 40%;
+}
+a{
+    color: #fff;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+#edm:hover{
+    text-decoration: underline;
+}
+#pm:hover{
+    text-decoration: underline; 
+}
+#con:hover{
+    text-decoration: underline;
+}
+#pe:hover{
+    text-decoration: underline;
+}
+
+.userlogo{
+    color: #fff;
+    display: flex;
+    position: relative;
+    top: 15px;
+    left: 550px;
+}
+
+.image{
+    height: 50px;
+    width: 50px;
+    background-image: url(./Images/Bijay.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 90px;
+    position: relative;
+    bottom: 10px;
+    margin-left: 15px;
+}
+
+.role{
+    color: #fff;
+    position: relative;
+    top: 35px;
+    left: 400px;
+    font-size: small;
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(14,100px);
+    grid-template-rows: repeat(6,100px);
+    position: relative;
+    top: 60px;
+}
+
+.profile{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: rgb(47, 55, 85);
+    border-radius: 90px;
+    position: relative;
+    top: 40px;
+}
+
+.bio{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    position: relative;
+    top: 70px;
+    left: 20px;
+}
+
+.bio li{
+    list-style-type: none;
+    margin-top: 40px;
+}
+
+.emergencyContact{
+    grid-column-start: 6;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border-radius: 15px;
+    position: relative;
+    top: 30px;
+    left: 50px;
+}
+
+.emergencyContact h3{
+    top: 5px;
+    padding-left: 20px;
+}
+
+.emergencyContact table{
+    padding-top: 15px;
+    padding-left: 40px;
+}
+
+.emergencyContact table th{
+    padding-left: 30px;
+}
+
+.emergencyContact table td{
+    padding-top: 10px;
+    padding-left: 30px;
+}

@@ -67,8 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message .= "Username should contain only letters and white spaces. ";
     }
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $message .= "Invalid email format. ";
+    // Check if email follows the desired patterns
+    if (!preg_match("/^[a-zA-Z]+@(usergmail\.com|admin\.edu\.com)$/", $email)) {
+        $message .= "Invalid email domain. ";
     }
 
     if (strlen($password) < 8) {
@@ -93,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 mysqli_close($conn);
 ?>
+
 
 
     <script>
