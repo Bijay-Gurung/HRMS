@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>50</p>
             </div>
 
-            <div class="EAC">
+            <div class="EAC" onclick="eac()">
                 <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
                 <h3>Employee Attendance Checker</h3>
             </div>
@@ -296,6 +296,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
 
     <script src="script.js"></script>
+    <script src="adminNav.js"></script>
     <script src="https://kit.fontawesome.com/4f9d824da5.js" crossorigin="anonymous"></script>
 </body>
 </html>

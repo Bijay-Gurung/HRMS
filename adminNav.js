@@ -17,3 +17,7 @@ function logout(){
 function view(){
     location = "adminView.html";
 }
+
+function eac(){
+    location = "employeeAttendanceChecker.html";
+}
