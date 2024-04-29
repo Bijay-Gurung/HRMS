@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="sideNavbar">
             <button id="dashboard" onclick="dashboard()">Dashboard</button>
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
-            <button id="payroll">Payroll Management</button>
+            <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits">Benefits Management</button>
             <button id="performanceEvaluation">performance Evaluation</button>
             <button id="logout">Logout</button>

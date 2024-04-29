@@ -1,5 +1,5 @@
 function dashboard(){
-    location = "adminDashboard.html";
+    location = "adminDashboard.php";
 }
 
 function edm(){
@@ -7,11 +7,11 @@ function edm(){
 }
 
 function addNewEmployee(){
-    location = "pageOne.html";
+    location = "pageOne.php";
 }
 
 function logout(){
-    location = "login.html";
+    location = "login.php";
 }
 
 function view(){
@@ -20,4 +20,8 @@ function view(){
 
 function eac(){
     location = "employeeAttendanceChecker.html";
+}
+
+function pm(){
+    location = "adminEmployeePayroll.html";
 }
