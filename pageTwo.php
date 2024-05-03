@@ -77,15 +77,14 @@
     </section>
 
     <?php
-        session_start(); // Start session to store user login status
+        session_start();
 
-        // Function to validate input data
         function validateInput($data) {
             return !empty($data) ? trim($data) : null;
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
-            // Validate form fields
+            
             $jobTitle = validateInput($_POST['jobTitle']);
             $organizationName = validateInput($_POST['organizationName']);
             $startDate = validateInput($_POST['startDate']);
@@ -97,37 +96,30 @@
             $reason = validateInput($_POST['reason']);
             $relevantSkills = validateInput($_POST['relevantSkills']);
 
-            // Handle file upload
             $certificate_name = $_FILES['certificate']['name'];
             $certificate_temp = $_FILES['certificate']['tmp_name'];
             $certificate_type = $_FILES['certificate']['type'];
             $certificate_size = $_FILES['certificate']['size'];
 
-            // Validate uploaded file
-            if ($certificate_size > 5000000) { // 5 MB maximum size
+            if ($certificate_size > 5000000) { 
                 $error = "File size is too large. Please upload a file smaller than 5 MB.";
             } elseif (!in_array($certificate_type, array("application/pdf", "image/jpeg", "image/png"))) {
                 $error = "Only PDF, JPEG, and PNG files are allowed.";
             } else {
-                // Read file content as binary
                 $certificate_data = addslashes(file_get_contents($certificate_temp));
-
-                // Create connection
+           
                 $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                // Insert data into database
                 $sql = "INSERT INTO table_2 (jobTitle, organizationName, startDate, endDate, jobDescription, criminalRecords, achievement, skillsDeveloped, reason, relevantSkills, certificate_data) 
                         VALUES ('$jobTitle', '$organizationName', '$startDate', '$endDate', '$jobDescription', '$criminalRecords', '$achievement', '$skillsDeveloped', '$reason', '$relevantSkills', '$certificate_data')";
 
                 if (mysqli_query($conn, $sql)) {
-                    // Success message
                     echo "<script>alert('Employee details added successfully');</script>";
                 } else {
-                    // Error message
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
 

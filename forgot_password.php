@@ -93,19 +93,16 @@
 
     <?php
         session_start(); 
-        // Create connection
+        
         $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-        // Check connection
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        // Check if reset_token column already exists in users table
         $check_query = "SHOW COLUMNS FROM users LIKE 'reset_token'";
         $result = mysqli_query($conn, $check_query);
 
-        // If the column does not exist, add it to the table
         if (mysqli_num_rows($result) == 0) {
             $alter_query = "ALTER TABLE users ADD reset_token VARCHAR(255)";
             if (!mysqli_query($conn, $alter_query)) {
@@ -113,24 +110,17 @@
             }
         }
 
-        // Process forgot password form submission
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST['email'];
 
-            // Check if email exists in the database
             $sql = "SELECT * FROM users WHERE LOWER(TRIM(email)) = LOWER(TRIM('$email'))";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) == 1) {
-                // Email exists, generate and send password reset instructions
-                // For simplicity, let's assume we generate a random password reset token
                 $token = bin2hex(random_bytes(16));
 
-                // Store the token in the database along with the user's email
                 $sql_update = "UPDATE users SET reset_token='$token' WHERE email='$email'";
                 if (mysqli_query($conn, $sql_update)) {
-                    // Send password reset instructions via email (not implemented here)
-                    // After sending the instructions, redirect the user to password reset page
                     $_SESSION['reset_email'] = $email;
                     header("Location: password_reset.php");
                     exit;
@@ -138,7 +128,6 @@
                     $error = "Error updating record: " . mysqli_error($conn);
                 }
             } else {
-                // Email not found, show error message
                 $error = "Email not found. Please try again.";
             }
         }

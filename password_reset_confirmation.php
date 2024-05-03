@@ -6,41 +6,40 @@
     <title>Password Reset Confirmation</title>
     <link href="passwordReset.css" rel="stylesheet">
     <style>
-        /* passwordReset.css */
 
-.confirmation {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+    .confirmation {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
 
-.confirmation h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+    .confirmation h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 
-.confirmation p {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
+    .confirmation p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
 
-.confirmation .back-to-login a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+    .confirmation .back-to-login a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
 
-.confirmation .back-to-login a:hover {
-    background-color: #0056b3;
-}
+    .confirmation .back-to-login a:hover {
+        background-color: #0056b3;
+    }
     </style>
 </head>
 <body>

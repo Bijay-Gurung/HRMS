@@ -108,39 +108,32 @@
     </div>
 
     <?php
-        session_start(); // Start session
-        // Create connection
+        session_start();
+
         $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-        // Check connection
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        // Process password reset form submission
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $reset_code = $_POST['reset_code'];
             $new_password = $_POST['new_password'];
 
-            // Get the email associated with the reset code
             $email = $_SESSION['reset_email'];
 
-            // Check if reset code matches the one in the database
             $sql = "SELECT * FROM users WHERE email='$email' AND reset_token='$reset_code'";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) == 1) {
-                // Reset code matches, update password
                 $sql_update = "UPDATE users SET password='$new_password', reset_token=NULL WHERE email='$email'";
                 if (mysqli_query($conn, $sql_update)) {
-                    // Password updated successfully, redirect to confirmation page
                     header("Location: password_reset_confirmation.php");
                     exit;
                 } else {
                     $error = "Error updating password: " . mysqli_error($conn);
                 }
             } else {
-                // Reset code doesn't match, show error message
                 $error = "Invalid reset code. Please try again.";
             }
         }

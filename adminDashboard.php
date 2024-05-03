@@ -60,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -255,7 +254,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
     <?php
-    $sql = "SELECT * FROM `todolist`";
+    $sql = "SELECT * FROM todolist";
     $result = $db->query($sql);
     echo "<div class='Tasks'>";
     if ($result->num_rows > 0) {
@@ -267,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<input type='checkbox' id='tick$index' onclick='completeTask($index)'>";
             echo "<li id='tasklist$index'>" . $row["task"] . "</li>";
             echo "<button type='button' class='editbtn' onclick='editTask(" . $row['id'] . ")'><i class='fa-solid fa-pencil' style='color: #000000;'></i></button>";
-            
+
             echo "<form method='post' style='display: inline;'>";
             echo "<input type='hidden' name='delete_task' value='" . $row["id"] . "'>";
             echo "<button type='submit' id='delete' name='delete_btn'><i class='fa-solid fa-trash' style='color: #000000;'></i></button>";
@@ -293,6 +292,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button id="close1" onclick="closeEditModal()">Close</button>
             </div>
         </div>
+        
     </section>
 
     <script src="script.js"></script>
