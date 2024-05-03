@@ -25,3 +25,7 @@ function eac(){
 function pm(){
     location = "adminEmployeePayroll.html";
 }
+
+function bm(){
+    location = "adminBenefitManagementSystem.html";
+}

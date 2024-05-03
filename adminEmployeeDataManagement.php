@@ -30,7 +30,7 @@
             <button id="dashboard" onclick="dashboard()">Dashboard</button>
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
-            <button id="Benefits">Benefits Management</button>
+            <button id="Benefits" onclick="bm()">Benefits Management</button>
             <button id="performanceEvaluation">performance Evaluation</button>
             <button id="logout">Logout</button>
 
