@@ -45,6 +45,150 @@
             </script>
         </div>
 
+        <form method="post">
+            <div class="form1">
+                <h3>Personal Details</h3>
+                <div class="pp">
+                    <p>Profile Picture</p>
+                    <img src="./Images/Bijay.jpg" height="90px" width="80px">
+                </div>
+
+                <div class="f1 name">
+                    <p>Full Name</p>
+                    <input type="text" id="name" name="name" value="" required>
+                </div>
+
+                <div class="f1 staff">
+                    <p>Staff ID</p>
+                    <input type="text" id="staffID" name="staffID" value="" required>
+                </div>
+
+                <div class="f1 gender">
+                    <p>Sex</p>
+                    <input type="text" id="sex" name="sex" value="" required>
+                </div>
+
+                <div class="f1 department">
+                    <p>Department</p>
+                    <input type="text" id="department" name="department" value="" required>
+                </div>
+        </div>
+
+        <div class="form2">
+            <h3>Bank Detail</h3>
+
+            <div class="f2 month">
+                <p>Month</p>
+                <input type="text" id="month" name="month" value="" required>
+            </div>
+
+            <div class="f2 year">
+                <p>Year</p>
+                <input type="text" id="year" name="year" value="" required>
+            </div>
+
+            <div class="f2 bankName">
+                <p>Bank Name</p>
+                <input type="text" id="bankName" name="bankName" value="" required>
+            </div>
+
+            <div class="f2 accountName">
+                <p>Account Name</p>
+                <input type="text" id="accountName" name="accountName" value="" required>
+            </div>
+
+            <div class="f2 accountNumber">
+                <p>Account Number</p>
+                <input type="text" id="accountNumber" name="accountNumber" value="" required>
+            </div>
+
+            <div class="f2 phoneNumber">
+                <p>Phone Number</p>
+                <input type="text" id="phoneNumber" name="phoneNumber" value="" required>
+            </div>
+        </div>
+
+        <div class="form3">
+            <h3 class="monthlyEntities">Monthly Entities</h3>
+            
+            <div class="f3 basicSalary">
+                <p>Basic Salary</p>
+                <input type="text" id="salary" name="salary" value="" required>
+            </div>
+
+            <div class="f3 overTime">
+                <p>Over-Time</p>
+                <input type="text" id="ot" name="ot" value="" required>
+            </div>
+
+            <h3 class="deduction">Deduction</h3>
+
+            <div class="f3 advanceSalary">
+                <p>Advance Salary</p>
+                <input type="text" id="as" name="as" value="" required>
+            </div>
+
+            <div class="f3 tax">
+                <p>Tax</p>
+                <input type="text" id="tax" name="tax" value="" required>
+            </div>
+
+            <div class="f3 insurance">
+                <p>Insurance</p>
+                <input type="text" id="insurance" name="insurance" value="" required>
+            </div>
+
+            <div class="f3 totalDeduction">
+                <p>Total Deduction</p>
+                <input type="text" id="totalDeduction" name="totalDeduction" value="" required>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button type="submit" id="submit">Submit</button>
+            <button type="submit" id="edit">Edit</button>
+            <button type="submit" id="delete">Delete</button>
+            <button type="submit" id="print">Print Payslip</button>
+        </div>
+        </form>
+
+        <div class="search">
+            <form method="post">
+                <input type="date" id="date" name="date">
+                <input type="submit" id="search" name="search">
+            </form>
+        </div>
+
+        <div class="payrollTable">
+            <table>
+                <tr id="heading">
+                    <th>Staff ID</th>
+                    <th>Employee Name</th>
+                    <th>Month</th>
+                    <th>Attendance</th>
+                    <th>Leave</th>
+                    <th>Bank</th>
+                    <th>Account No</th>
+                    <th>Account Name</th>
+                    <th>Total Deduction</th>
+                    <th>Net Pay</th>
+                </tr>
+
+                <tr>
+                    <td>0001</td>
+                    <td>Bijay Gurung</td>
+                    <td>April</td>
+                    <td>30</td>
+                    <td>0</td>
+                    <td>Nabil Bank</td>
+                    <td>01548985732616</td>
+                    <td>Bijay Gurung</td>
+                    <td>9500</td>
+                    <td>190500</td>
+                </tr>
+
+            </table>
+        </div>
     </section>
 
     <script src="adminNav.js"></script>
