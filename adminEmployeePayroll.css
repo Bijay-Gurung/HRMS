@@ -316,16 +316,20 @@ form{
     background-color: #fff;
 }
 
-.search #date{
+.search #searchMonth{
     height: 40px;
-    width: 250px;
+    width: 150px;
    
 }
 
-.search #search{
-    height: 40px;
-    width: 90px;
-    margin-left: 190px;
+.search button{
+   height: 30px;
+   border-radius: 9px;
+   background-color: #fff;
+   color: rgb(47, 55, 85);
+   border: none;
+   box-shadow: 4px 4px 9px #808080;
+   margin-left: 300px;
 }
 
 .actions{

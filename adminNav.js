@@ -23,7 +23,7 @@ function eac(){
 }
 
 function pm(){
-    location = "adminEmployeePayroll.html";
+    location = "adminEmployeePayroll.php";
 }
 
 function bm(){
