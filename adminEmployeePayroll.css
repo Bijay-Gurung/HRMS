@@ -357,12 +357,12 @@ form{
     box-shadow: 4px 4px 9px #808080;
 }
 .payrollTable{
-    grid-column-start: 4;
+    grid-column-start: 1;
     grid-column-end: 13;
     grid-row-start: 8;
     grid-row-end: 12;
     position: relative;
-    left: 90px;
+    left: 190px;
     overflow: hidden;
     overflow-y: scroll;
     box-shadow: 4px 4px 9px #808080;
