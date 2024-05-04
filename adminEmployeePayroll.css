@@ -316,20 +316,25 @@ form{
     background-color: #fff;
 }
 
+.search #searchName{
+    height: 40px;
+}
+
 .search #searchMonth{
     height: 40px;
     width: 150px;
-   
+    margin-left: 40px;
 }
 
-.search button{
-   height: 30px;
+.search #search{
+   height: 40px;
+   width: 90px;
    border-radius: 9px;
    background-color: #fff;
    color: rgb(47, 55, 85);
    border: none;
    box-shadow: 4px 4px 9px #808080;
-   margin-left: 300px;
+   margin-left: 380px;
 }
 
 .actions{
