@@ -12,7 +12,7 @@
     transform: translate(-50%, -50%);
     height: 500px;
     width: 400px;
-    background-color: #3957BF;
+    background-color: rgb(47, 55, 85);
     border-radius: 19px;
     box-shadow: 2px 2px 9px 2px #808080;
     color: #fff;
@@ -68,7 +68,7 @@ input {
     border-radius: 9px;
     padding: 10px;
     margin-bottom: 15px;
-    width: calc(100% - 20px); /* Adjusted width */
+    width: calc(100% - 20px);
 }
 
 #forgotPassword {
@@ -77,7 +77,7 @@ input {
 }
 
 #forgotPassword a {
-    color: #fff;
+    color: #f3f30f;
     text-decoration: none;
 }
 

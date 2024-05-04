@@ -104,6 +104,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 function edm(){
                     location = 'adminEmployeeDataManagement.php';
                 }
+
+                function pm(){
+                    location = 'adminEmployeePayroll.php';
+                }
             </script>
         </div>    
 

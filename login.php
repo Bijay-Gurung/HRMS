@@ -22,7 +22,7 @@
             <input type="password" placeholder="password" id="password" name="password" required>
             <br>
             <a href="forgot_password.php" id="forgotPassword">forgot password</a><br>
-            <input type="Submit" name="submit" id="submit">
+            <input type="Submit" name="Login" id="submit">
         </form>
 
         <div class="Alternative">

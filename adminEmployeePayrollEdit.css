@@ -1,0 +1,409 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+#logo{
+    height: 45px;
+    width: 45px;
+    background-image: url(./Images/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 90px;
+}
+#logoName{
+    font-size: small;
+    padding-left: 3px;
+    color: #fff;
+}
+
+nav{
+    margin-top: 20px;
+    margin-left: 40%;
+}
+a{
+    color: #fff;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+#edm:hover{
+    text-decoration: underline;
+}
+#pm:hover{
+    text-decoration: underline; 
+}
+#con:hover{
+    text-decoration: underline;
+}
+#pe:hover{
+    text-decoration: underline;
+}
+
+.userlogo{
+    color: #fff;
+    display: flex;
+    position: relative;
+    top: 15px;
+    left: 550px;
+}
+
+.image{
+    height: 50px;
+    width: 50px;
+    background-image: url(./Images/Bijay.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 90px;
+    position: relative;
+    bottom: 10px;
+    margin-left: 15px;
+}
+
+.role{
+    color: #fff;
+    position: relative;
+    top: 35px;
+    left: 400px;
+    font-size: small;
+}
+
+section{
+    display: grid;
+    height: 600px;
+    width: 100%;
+    position: relative;
+    top: 60px;
+    grid-template-columns: repeat(16,100px);
+    grid-template-rows: repeat(12,100px);
+}
+
+.sideNavbar{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 8;
+    background-color: rgb(47, 55, 85);
+}
+
+.sideNavbar button{
+    height: 30px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.sideNavbar #dashboard{
+    margin-top: 0px;
+}
+
+form{
+    grid-column-start: 3;
+    grid-column-end: 12;
+    grid-row-start: 2;
+    grid-row-end: 8;
+    display: grid;
+    grid-template-columns: repeat(13,100px);
+    grid-template-rows: repeat(7,100px);
+}
+
+.form1{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 20px;
+    left: 30px;
+    border-radius: 9px;
+}
+.form1 h3{
+    padding-top: 10px;
+    padding-left: 30px;
+    text-decoration: underline;
+}
+.form1 .pp{
+    display: flex;
+    padding-top: 20px;
+}
+.pp img{
+    border-radius: 5px;
+    margin-left: 60px;
+}
+.pp p{
+    padding-top: 40px;
+}
+
+.form1 p{
+    padding-left: 60px;
+}
+
+.form1 .f1{
+    display: flex;
+    padding-top: 20px;
+}
+.f1 input{
+    margin-left: 10px;
+    padding-left: 10px;
+    border-radius: 9px;
+}
+
+.name{
+    margin-top: 10px;
+}
+
+.name input{
+    margin-left: 20px;
+}
+
+.staff input{
+    margin-left: 40px;
+}
+
+.gender input{
+    margin-left: 65px;
+}
+
+.form2{
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 20px;
+    left: 50px;
+    border-radius: 9px;
+}
+
+.form2 h3{
+    text-decoration: underline;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.form2 .f2{
+    display: flex;
+    margin-top: 25px;
+}
+
+.f2 p{
+    padding-left: 40px;
+}
+
+.f2 input{
+    border-radius: 9px;
+}
+
+.month input{
+    margin-left: 87px;
+}
+
+.year input{
+    margin-left: 100px;
+}
+
+.bankName input{
+    margin-left: 50px;
+}
+
+.accountName input{
+    margin-left: 30px;
+}
+
+.accountNumber input{
+    margin-left: 17px;
+}
+
+.phoneNumber input{
+    margin-left: 30px;
+}
+
+.form3{
+    grid-column-start: 9;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 20px;
+    left: 70px;
+    border-radius: 9px;
+}
+
+.form3 h3{
+    text-decoration: underline;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.f3{
+    margin-top: 25px;
+    display: flex;
+}
+
+.f3 input{
+    border-radius: 9px;
+}
+
+.f3 p{
+    padding-left: 30px;
+}
+
+.form3 .deduction{
+    margin-top: 20px;
+}
+
+.advanceSalary input{
+    margin-left: 20px;
+}
+
+.tax input{
+    margin-left: 105px;
+}
+
+.insurance input{
+    margin-left: 60px;
+}
+
+.totalDeduction input{
+    margin-left: 20px;
+}
+
+.overTime input{
+    margin-left: 60px;
+}
+
+.basicSalary input{
+    margin-left: 45px;
+}
+
+.search{
+    grid-column-start: 5;
+    grid-column-end: 10;
+    grid-row-start: 7;
+    grid-row-end: 8;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.search input{
+    border-radius: 9px;
+    position: relative;
+    left: 250px;
+    border: none;
+    box-shadow: 4px 4px 9px #808080;
+    background-color: #fff;
+}
+
+.search #date{
+    height: 40px;
+    width: 250px;
+   
+}
+
+.search #search{
+    height: 40px;
+    width: 90px;
+    margin-left: 190px;
+}
+
+.actions{
+    grid-column-start: 5;
+    grid-column-end:10;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    display: flex;
+}
+
+.actions button{
+    height: 40px;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 30px;
+    border-radius: 9px;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    box-shadow: 4px 4px 9px #808080;
+}
+.payrollTable{
+    grid-column-start: 4;
+    grid-column-end: 13;
+    grid-row-start: 8;
+    grid-row-end: 12;
+    position: relative;
+    left: 90px;
+    overflow: hidden;
+    overflow-y: scroll;
+    box-shadow: 4px 4px 9px #808080;
+    margin-top: 30px;
+}
+table{
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+}
+.payrollTable #heading{
+    background-color: #DEDEDE;
+}
+td{
+    color: #fff;
+    text-align: center;
+}
+
+
+.search-container {
+    grid-column-start: 4;
+    grid-column-end: 12;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left:-30px;
+}
+
+.search-container input[type="text"] {
+    border-radius: 9px;
+    border: none;
+    box-shadow: 4px 4px 9px #808080;
+    background-color: #fff;
+    height: 40px;
+    width: 250px;
+    padding-left: 50px; 
+}
+
+.search-container button[type="submit"] {
+    height: 40px;
+    width: 80px;
+    margin-left: 160px;
+    border-radius: 9px;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 4px 4px 9px #808080;
+}
+
+.search-container button[type="submit"]:hover {
+    background-color: #364254;
+}

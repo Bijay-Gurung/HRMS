@@ -44,7 +44,7 @@
                 }
 
                 function pm(){
-                    window.location.href = 'adminEmployeePayroll.html';
+                    window.location.href = 'adminEmployeePayroll.php';
                 }
             </script>
         </div>    
