@@ -49,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     $sex = validateInput($_POST['sex']);
     $department = validateInput($_POST['department']);
     $month = validateInput($_POST['month']);
-    $year = validateInput($_POST['year']);
     $bankName = validateInput($_POST['bankName']);
     $accountName = validateInput($_POST['accountName']);
     $accountNumber = validateInput($_POST['accountNumber']);
@@ -64,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     $netPay = calculateNetPay($salary, $ot, $totalDeduction);
     // Update data in the database
     $update_sql = "UPDATE payroll 
-                   SET staff_id='$staffID', sex='$sex', department='$department', month='$month', year='$year', bank_name='$bankName', account_name='$accountName', account_number='$accountNumber', phone_number='$phoneNumber', basic_salary='$salary', over_time='$ot', advance_salary='$as', tax='$tax', insurance='$insurance', total_deduction='$totalDeduction', net_pay='$netPay' 
+                   SET staff_id='$staffID', sex='$sex', department='$department', month='$month', bank_name='$bankName', account_name='$accountName', account_number='$accountNumber', phone_number='$phoneNumber', basic_salary='$salary', over_time='$ot', advance_salary='$as', tax='$tax', insurance='$insurance', total_deduction='$totalDeduction', net_pay='$netPay' 
                    WHERE employee_name='$name'";
     if (mysqli_query($conn, $update_sql)) {
         // Success message
@@ -182,11 +181,6 @@ mysqli_close($conn);
             <div class="f2 month">
                 <p>Month</p>
                 <input type="text" id="month" name="month" value="<?php echo isset($month) ? $month : ''; ?>" required>
-            </div>
-
-            <div class="f2 year">
-                <p>Year</p>
-                <input type="text" id="year" name="year" value="<?php echo isset($year) ? $year : ''; ?>" required>
             </div>
 
             <div class="f2 bankName">

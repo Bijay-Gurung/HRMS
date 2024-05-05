@@ -133,8 +133,16 @@ mysqli_close($conn);
             <button id="logout">Logout</button>
 
             <script>
-                function dashboard(){
+                 function dashboard(){
                     window.location.href = 'adminDashboard.php';
+                }
+
+                function edm(){
+                    window.location.href = 'adminEmployeeDataManagement.php';
+                }
+
+                function pm(){
+                    window.location.href = 'adminEmployeePayroll.php';
                 }
 
                 function edm(){
@@ -172,9 +180,7 @@ mysqli_close($conn);
             <h3>Bank Detail</h3>
 
             <div class="f2 month">
-                <p>Month</
-
-p>
+                <p>Month</p>
                 <input type="month" id="month" name="month" value="" required>
             </div>
 

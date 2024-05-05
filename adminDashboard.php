@@ -108,6 +108,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 function pm(){
                     location = 'adminEmployeePayroll.php';
                 }
+
+                
             </script>
         </div>    
 
@@ -161,9 +163,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>50</p>
             </div>
 
-            <div class="EAC" onclick="eac()">
+            <div class="EAC">
                 <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
-                <h3>Employee Attendance Checker</h3>
+                <h3  onclick="eac()">Employee Attendance Checker</h3>
             </div>
         </div>
 

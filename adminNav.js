@@ -19,7 +19,7 @@ function view(){
 }
 
 function eac(){
-    location = "employeeAttendanceChecker.html";
+    location = "employeeAttendanceChecker.php";
 }
 
 function pm(){
