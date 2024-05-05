@@ -89,6 +89,57 @@
 
     </section>
 
+    <?php
+// Database connection
+$conn = mysqli_connect("localhost", "root", "", "HRMS");
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Function to fetch benefit details
+function getBenefitDetails() {
+    global $conn;
+    $sql = "SELECT * FROM benefits";
+    $result = mysqli_query($conn, $sql);
+
+    $benefits = [];
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $benefits[] = $row;
+        }
+    }
+
+    return $benefits;
+}
+
+// Function to generate benefit report
+function generateBenefitReport() {
+    global $conn;
+
+    // Fetch benefit data from the database
+    $sql = "SELECT type, COUNT(*) AS count FROM benefits GROUP BY type";
+    $result = mysqli_query($conn, $sql);
+
+    // Initialize an empty array to store the report data
+    $reportData = [];
+
+    // Check if there are any results
+    if (mysqli_num_rows($result) > 0) {
+        // Loop through each row of the result set
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Add each row to the report data array
+            $reportData[] = $row;
+        }
+    }
+
+    // Return the report data
+    return $reportData;
+}
+?>
+
+
     <script src="adminNav.js"></script>
     <script src="https://kit.fontawesome.com/4f9d824da5.js" crossorigin="anonymous"></script>
 

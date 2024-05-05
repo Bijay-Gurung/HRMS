@@ -24,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
         $sex = $row['sex'];
         $department = $row['department'];
         $month = $row['month'];
-        $year = $row['year'];
         $bankName = $row['bank_name'];
         $accountName = $row['account_name'];
         $accountNumber = $row['account_number'];
@@ -102,7 +101,7 @@ mysqli_close($conn);
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="performanceEvaluation" onclick="bm()">performance Evaluation</button>
             <button id="logout">Logout</button>
 
             <script>
@@ -157,11 +156,6 @@ mysqli_close($conn);
             <div class="f2 month">
                 <p>Month</p>
                 <input type="text" id="month" name="month" value="<?php echo isset($month) ? $month : ''; ?>" required>
-            </div>
-
-            <div class="f2 year">
-                <p>Year</p>
-                <input type="text" id="year" name="year" value="<?php echo isset($year) ? $year : ''; ?>" required>
             </div>
 
             <div class="f2 bankName">

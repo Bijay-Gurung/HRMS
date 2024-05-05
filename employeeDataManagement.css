@@ -1,0 +1,153 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+#logo{
+    height: 45px;
+    width: 45px;
+    background-image: url(./Images/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 90px;
+}
+#logoName{
+    font-size: small;
+    padding-left: 3px;
+    color: #fff;
+}
+
+nav{
+    margin-top: 20px;
+    margin-left: 40%;
+}
+a{
+    color: #fff;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+#edm:hover{
+    text-decoration: underline;
+}
+#pm:hover{
+    text-decoration: underline; 
+}
+#con:hover{
+    text-decoration: underline;
+}
+#pe:hover{
+    text-decoration: underline;
+}
+
+.userlogo{
+    color: #fff;
+    display: flex;
+    position: relative;
+    top: 15px;
+    left: 550px;
+}
+
+.image{
+    height: 50px;
+    width: 50px;
+    background-image: url(./Images/Bijay.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 90px;
+    position: relative;
+    bottom: 10px;
+    margin-left: 15px;
+}
+
+.role{
+    color: #fff;
+    position: relative;
+    top: 35px;
+    left: 400px;
+    font-size: small;
+}
+
+section{
+    display: grid;
+    height: 600px;
+    width: 100%;
+    position: relative;
+    top: 60px;
+    grid-template-columns: repeat(16,100px);
+    grid-template-rows: repeat(7,100px);
+}
+
+.sideNavbar{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 8;
+    background-color: rgb(47, 55, 85);
+}
+
+.sideNavbar button{
+    height: 30px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.sideNavbar #dashboard{
+    margin-top: 0px;
+}
+
+
+table{
+    background-color: rgb(47, 55, 85);
+    width: 100%;
+}
+
+#heading{
+    background-color: #fff;
+}
+
+th{
+    font-size: large;
+    color: rgb(47, 55, 85);
+}
+
+td img{
+    border-radius: 90px;
+}
+td{
+    text-align: center;
+}
+
+td i{
+    padding-left: 10px;
+}
+.content{
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 40px;
+    grid-column-start: 4;
+    grid-column-end: 15;
+    grid-row-start: 1;
+    grid-row-end: 7;
+    color: #fff;
+}

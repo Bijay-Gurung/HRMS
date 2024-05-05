@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Human Resource Management System</title>
-    <link href="adminEmployeeDataManagement.css" rel="stylesheet">
+    <link href="employeeDataManagement.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -18,57 +18,44 @@
         </nav>
 
         <div class="userlogo">
-            <p>Bijay Gurung</p>
+            <p>Suraj Kanwar</p>
             <div class="image"></div>
         </div>
 
-        <p class="role">Admin</p>
+        <p class="role">User</p>
     </header>
 
     <section>
-        <div class="sideNavbar">
-            <button id="dashboard" onclick="dashboard()">Dashboard</button>
-            <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
-            <button id="payroll" onclick="pm()">Payroll Management</button>
-            <button id="Benefits" onclick="bm()">Benefits Management</button>
+    <div class="sideNavbar">
+            <button id="dashboard" onclick="das()">Dashboard</button>
+            <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
+            <button id="payroll" onclick="ab()">Payroll Management</button>
+            <button id="Benefits">Benefits Management</button>
             <button id="performanceEvaluation">performance Evaluation</button>
-            <button id="logout">Logout</button>
+            <button id="logout" onclick="ae()">Logout</button>
 
             <script>
-                function dashboard(){
-                    window.location.href = 'adminDashboard.php';
+                function das(){
+                    location = 'UserDashboard.php';
                 }
 
-                function edm(){
-                    window.location.href = 'adminEmployeeDataManagement.php';
+                function am(){
+                    location = 'employeeDataManagement.php';
                 }
 
-                function pm(){
-                    window.location.href = 'adminEmployeePayroll.php';
+                function ab(){
+                    location = 'employeePayroll.php';
+                }
+
+                function eac(){
+                    location = 'employeeAttendanceChecker.php';
+                }
+
+                function ae(){
+                    location = 'index.html';
                 }
             </script>
         </div>    
-
-        <div class="searchSection">
-            <input type="text" id="searchbar" name="searchbar" placeholder="Search....">
-            <button onclick="searchEmployees()"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
-        </div>
-        <div class="addNewEmployee">
-            <button onclick="newEmployee()">Add New Employee</button>
-            <script>
-                function newEmployee(){
-                    window.location.href = 'pageOne.php';
-                }
-            </script>
-        </div>
-        <div class="editEmployee">
-        <button onclick="window.location.href = 'adminEditEmployee.php'">Edit Employee</button>
-
-        </div>
-
-        <div class="deleteEmployee">
-        <button onclick="window.location.href = 'adminDeleteEmployee.php'">Delete Employee</button>
-        </div>
 
         <div class="content">
             <table id="employeeTable">
@@ -134,28 +121,7 @@
                         }
                     }
                 }
-            }
-    function searchEmployees() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchbar");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("employeeTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those that don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0]; // Get the first <td> (employee name)
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = ""; // Display the row if the employee name matches the search query
-                } else {
-                    tr[i].style.display = "none"; // Hide the row if the employee name doesn't match the search query
-                }
-            }
-        }
-    }
-
+   
     </script>
 
 </body>

@@ -43,21 +43,35 @@ if ($db->connect_error) {
 
     <section>
         <div class="sideNavbar">
-            <button id="dashboard" onclick="dashboard()">Dashboard</button>
-            <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
-            <button id="payroll">Payroll Management</button>
+            <button id="dashboard" onclick="das()">Dashboard</button>
+            <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
+            <button id="payroll" onclick="ab()">Payroll Management</button>
             <button id="Benefits">Benefits Management</button>
             <button id="performanceEvaluation">performance Evaluation</button>
-            <button id="logout">Logout</button>
+            <button id="logout" onclick="ae()">Logout</button>
 
             <script>
-                function dashboard(){
-                    location = 'adminDashboard.php';
+                function das(){
+                    location = 'UserDashboard.php';
                 }
 
-                function edm(){
-                    location = 'adminEmployeeDataManagement.php';
+                function am(){
+                    location = 'employeeDataManagement.php';
                 }
+
+                function ab(){
+                    location = 'employeePayroll.php';
+                }
+
+                function eac(){
+                    location = 'employeeAttendanceChecker.php';
+                }
+
+                function ae(){
+                    location = 'index.html';
+                }
+
+
             </script>
         </div>    
 
@@ -111,7 +125,7 @@ if ($db->connect_error) {
                 <p>50</p>
             </div>
 
-            <div class="EAC">
+            <div class="EAC" onclick="eac()">
                 <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
                 <h3>Employee Attendance Checker</h3>
             </div>
