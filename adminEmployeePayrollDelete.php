@@ -1,24 +1,17 @@
 <?php
-// Database connection
 $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-// Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Process form submission for searching and populating the form fields
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
-    // Retrieve form inputs
     $searchName = validateInput($_POST['searchName']);
-    
-    // Search for the existing data based on the employee name
     $search_sql = "SELECT * FROM payroll WHERE employee_name='$searchName'";
     $result = mysqli_query($conn, $search_sql);
     
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        // Populate the form fields with the retrieved data
         $name = $row['employee_name'];
         $staffID = $row['staff_id'];
         $sex = $row['sex'];
@@ -35,27 +28,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
         $insurance = $row['insurance'];
         $totalDeduction = $row['total_deduction'];
     } else {
-        // Employee not found
+  
         $error = "Employee not found!";
     }
 }
 
-// Process form submission for updating data
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
-    // Retrieve form inputs
     $name = validateInput($_POST['name']);
-    // Delete data from the database
+
     $delete_sql = "DELETE FROM payroll WHERE employee_name='$name'";
     if (mysqli_query($conn, $delete_sql)) {
-        // Success message
+
         $message = "Payroll data deleted successfully";
     } else {
-        // Error message
+
         $error = "Error deleting record: " . mysqli_error($conn);
     }
 }
 
-// Function to validate input data
 function validateInput($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -101,7 +92,7 @@ mysqli_close($conn);
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation" onclick="bm()">performance Evaluation</button>
+            <button id="performanceEvaluation" onclick="bm()">Performance Evaluation</button>
             <button id="logout">Logout</button>
 
             <script>

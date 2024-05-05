@@ -1,24 +1,22 @@
 <?php
-// Database connection
 $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-// Check connection
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Process form submission for searching and populating the form fields
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
-    // Retrieve form inputs
+  
     $searchName = validateInput($_POST['searchName']);
     
-    // Search for the existing data based on the employee name
     $search_sql = "SELECT * FROM payroll WHERE employee_name='$searchName'";
     $result = mysqli_query($conn, $search_sql);
     
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        // Populate the form fields with the retrieved data
+        
         $name = $row['employee_name'];
         $staffID = $row['staff_id'];
         $sex = $row['sex'];
@@ -36,14 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
         $insurance = $row['insurance'];
         $totalDeduction = $row['total_deduction'];
     } else {
-        // Employee not found
+       
         $error = "Employee not found!";
     }
 }
 
-// Process form submission for updating data
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
-    // Retrieve form inputs
+
     $name = validateInput($_POST['name']);
     $staffID = validateInput($_POST['staffID']);
     $sex = validateInput($_POST['sex']);
@@ -59,29 +57,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     $tax = validateInput($_POST['tax']);
     $insurance = validateInput($_POST['insurance']);
     $totalDeduction = validateInput($_POST['totalDeduction']);
-    // Calculate net pay
+
     $netPay = calculateNetPay($salary, $ot, $totalDeduction);
-    // Update data in the database
+  
     $update_sql = "UPDATE payroll 
                    SET staff_id='$staffID', sex='$sex', department='$department', month='$month', bank_name='$bankName', account_name='$accountName', account_number='$accountNumber', phone_number='$phoneNumber', basic_salary='$salary', over_time='$ot', advance_salary='$as', tax='$tax', insurance='$insurance', total_deduction='$totalDeduction', net_pay='$netPay' 
                    WHERE employee_name='$name'";
     if (mysqli_query($conn, $update_sql)) {
-        // Success message
+      
         $message = "Payroll data updated successfully";
     } else {
-        // Error message
+        
         $error = "Error updating record: " . mysqli_error($conn);
     }
 }
 
-// Function to calculate net pay
+
 function calculateNetPay($basicSalary, $overTime, $totalDeduction) {
-    // Calculate net pay (Basic Salary + Over-Time - Total Deduction)
+    
     $netPay = $basicSalary + $overTime - $totalDeduction;
     return $netPay;
 }
 
-// Function to validate input data
+
 function validateInput($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -126,7 +124,7 @@ mysqli_close($conn);
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
             <button id="logout">Logout</button>
 
             <script>

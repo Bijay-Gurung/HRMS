@@ -1,5 +1,4 @@
 <?php
-// Initialize variables
 $name = "";
 $staffID = "";
 $sex = "";
@@ -16,17 +15,15 @@ $tax = "";
 $insurance = "";
 $totalDeduction = "";
 
-// Database connection
 $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-// Check connection
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Process form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    // Validate form inputs
     $name = isset($_POST['name']) ? validateInput($_POST['name']) : "";
     $staffID = isset($_POST['staffID']) ? validateInput($_POST['staffID']) : "";
     $sex = isset($_POST['sex']) ? validateInput($_POST['sex']) : "";
@@ -43,27 +40,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $insurance = isset($_POST['insurance']) ? validateInput($_POST['insurance']) : "";
     $totalDeduction = isset($_POST['totalDeduction']) ? validateInput($_POST['totalDeduction']) : "";
 
-    // Function to calculate net pay
     function calculateNetPay($basicSalary, $overTime, $totalDeduction) {
-        // Calculate net pay (Basic Salary + Over-Time - Total Deduction)
         $netPay = (int)$basicSalary + (int)$overTime - (int)$totalDeduction;
         return $netPay;
     }
 
-    // Calculate net pay
     $netPay = calculateNetPay($salary, $ot, $totalDeduction);
 
-    // Insert data into payroll table
     $sql = "INSERT INTO payroll (employee_name, staff_id, sex, department, month, bank_name, account_name, account_number, phone_number, basic_salary, over_time, advance_salary, tax, insurance, total_deduction, net_pay) 
     VALUES ('$name', '$staffID', '$sex', '$department', '$month', '$bankName', '$accountName', '$accountNumber', '$phoneNumber', '$salary', '$ot', '$as', '$tax', '$insurance', '$totalDeduction', '$netPay')";
 
     if (mysqli_query($conn, $sql)) {
-        // Success message
         $message = "Payroll data inserted successfully";
         header("Location: " . $_SERVER['REQUEST_URI']);
         exit();
     } else {
-        // Error message
         $error = "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
@@ -71,21 +62,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 $searchName = "";
 $searchMonth = "";
 
-// Search function
 if (isset($_POST['search'])) {
     $searchName = validateInput($_POST['searchName']);
     $searchMonth = validateInput($_POST['searchMonth']);
-    
-    // Retrieve data from the database based on name and month
+
     $search_sql = "SELECT * FROM payroll WHERE employee_name LIKE '%$searchName%' AND month='$searchMonth'";
     $result = mysqli_query($conn, $search_sql);
 } else {
-    // Retrieve all data
+
     $search_sql = "SELECT * FROM payroll";
     $result = mysqli_query($conn, $search_sql);
 }
 
-// Function to validate input data
 function validateInput($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -129,7 +117,7 @@ mysqli_close($conn);
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
             <button id="logout">Logout</button>
 
             <script>

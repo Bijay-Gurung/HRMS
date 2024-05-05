@@ -91,7 +91,7 @@
             <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
             <button id="payroll" onclick="ab()">Payroll Management</button>
             <button id="Benefits">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
@@ -119,23 +119,23 @@
 
         <div class="employeeAttendance">
             <?php
-            // Establish database connection
+          
             $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-            // Check connection
+            
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
 
-            // Check if form is submitted
+        
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                // Escape user inputs for security
+        
                 $employee_name = mysqli_real_escape_string($conn, $_POST['employee_name']);
                 $month = mysqli_real_escape_string($conn, $_POST['month']);
                 $week = mysqli_real_escape_string($conn, $_POST['week']);
-                $week_days = implode(", ", $_POST['week_days']); // Convert array to comma-separated string
+                $week_days = implode(", ", $_POST['week_days']); 
 
-                // Attempt to insert data into database
+              
                 $sql = "INSERT INTO attendance (employee_name, month, week, week_days)
                         VALUES ('$employee_name', '$month', '$week', '$week_days')";
 
@@ -146,7 +146,7 @@
                 }
             }
 
-            // Close connection
+         
             mysqli_close($conn);
             ?>
 

@@ -80,15 +80,26 @@ section{
     grid-template-columns: repeat(12, 100px);
     grid-template-rows: repeat(8, 100px);
 }
-.content1{
-   grid-column-start: 1;
-   grid-column-end: 4;
-   grid-row-start: 1;
-   grid-row-end: 5;
-   background-color: rgb(47, 55, 85);
-   border-radius: 15px;
-    
-}
+.content1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-color: rgb(47, 55, 85);
+    border-radius: 15px;
+    background-image: url('about.jpeg');
+    background-size: cover;
+    background-position: center;
+ }
+
+ .content1 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+ }
+ 
+ 
 .content2{
     grid-column-start: 5;
     grid-column-end: 12;

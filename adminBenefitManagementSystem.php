@@ -31,7 +31,7 @@
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
             <button id="logout">Logout</button>
 
             <script>
@@ -90,54 +90,43 @@
     </section>
 
     <?php
-// Database connection
-$conn = mysqli_connect("localhost", "root", "", "HRMS");
+        $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Function to fetch benefit details
-function getBenefitDetails() {
-    global $conn;
-    $sql = "SELECT * FROM benefits";
-    $result = mysqli_query($conn, $sql);
-
-    $benefits = [];
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $benefits[] = $row;
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
         }
-    }
 
-    return $benefits;
-}
+        function getBenefitDetails() {
+            global $conn;
+            $sql = "SELECT * FROM benefits";
+            $result = mysqli_query($conn, $sql);
 
-// Function to generate benefit report
-function generateBenefitReport() {
-    global $conn;
+            $benefits = [];
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $benefits[] = $row;
+                }
+            }
 
-    // Fetch benefit data from the database
-    $sql = "SELECT type, COUNT(*) AS count FROM benefits GROUP BY type";
-    $result = mysqli_query($conn, $sql);
-
-    // Initialize an empty array to store the report data
-    $reportData = [];
-
-    // Check if there are any results
-    if (mysqli_num_rows($result) > 0) {
-        // Loop through each row of the result set
-        while ($row = mysqli_fetch_assoc($result)) {
-            // Add each row to the report data array
-            $reportData[] = $row;
+            return $benefits;
         }
-    }
 
-    // Return the report data
-    return $reportData;
-}
-?>
+        function generateBenefitReport() {
+            global $conn;
+
+            $sql = "SELECT type, COUNT(*) AS count FROM benefits GROUP BY type";
+            $result = mysqli_query($conn, $sql);
+
+            $reportData = [];
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $reportData[] = $row;
+                }
+            }
+            return $reportData;
+        }
+        ?>
 
 
     <script src="adminNav.js"></script>

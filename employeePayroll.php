@@ -1,5 +1,5 @@
 <?php
-// Initialize variables
+
 $name = "";
 $staffID = "";
 $sex = "";
@@ -16,10 +16,10 @@ $tax = "";
 $insurance = "";
 $totalDeduction = "";
 
-// Database connection
+
 $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-// Check connection
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -28,21 +28,21 @@ if (!$conn) {
 $searchName = "";
 $searchMonth = "";
 
-// Search function
+
 if (isset($_POST['search'])) {
     $searchName = validateInput($_POST['searchName']);
     $searchMonth = validateInput($_POST['searchMonth']);
     
-    // Retrieve data from the database based on name and month
+  
     $search_sql = "SELECT * FROM payroll WHERE employee_name LIKE '%$searchName%' AND month='$searchMonth'";
     $result = mysqli_query($conn, $search_sql);
 } else {
-    // Retrieve all data
+
     $search_sql = "SELECT * FROM payroll";
     $result = mysqli_query($conn, $search_sql);
 }
 
-// Function to validate input data
+
 function validateInput($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -87,7 +87,7 @@ mysqli_close($conn);
             <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
             <button id="payroll" onclick="ab()">Payroll Management</button>
             <button id="Benefits">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>

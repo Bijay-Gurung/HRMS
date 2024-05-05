@@ -27,5 +27,5 @@ function pm(){
 }
 
 function bm(){
-    location = "adminBenefitManagementSystem.html";
+    location = "adminBenefitManagementSystem.php";
 }

@@ -1,26 +1,21 @@
 <?php
 $task = "";
-// Database Configuration
 $db_host = 'localhost';
 $db_username = 'root';
 $db_pass = '';
 $db_name = 'HRMS';
 
-// Database connection
 $db = new mysqli($db_host, $db_username, $db_pass, $db_name);
 
-// Check Database Connection
 if ($db->connect_error) {
     die("Connection failed" . $db->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["task"]) && !empty($_POST["task"])) {
-        // Prepare and bind the INSERT statement
         $task = $_POST["task"];
         $stmt = $db->prepare("INSERT INTO todolist (task) VALUES (?)");
         $stmt->bind_param('s', $task);
-        // Execute the statement
         if ($stmt->execute()) {
             header("Location: " . $_SERVER['REQUEST_URI']);
             exit();
@@ -93,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
             <button id="logout">Logout</button>
 
             <script>
@@ -108,6 +103,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 function pm(){
                     location = 'adminEmployeePayroll.php';
                 }
+
+                function pm(){
+                    location = 'adminBenefitManagementSystem.php';
+                }
+
 
                 
             </script>
