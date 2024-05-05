@@ -59,8 +59,6 @@
             <div class="box six" id="six"><i class="fa-solid fa-book-open" style="color: #2f3755;"></i>Educational Benefits</div>
 
             <div class="box seven" id="seven"><i class="fa-solid fa-sack-dollar" style="color: #2f3755;"></i>Retirement Saving</div>
-
-            <div class="box eight" id="eight"><i class="fa-solid fa-heart-circle-check" style="color: #2f3755;"></i>Wellness Programs</div>
         </div>
 
         <div class="forms">
@@ -321,33 +319,6 @@
                 </div>
             </div>
 
-            <div class="WellnessPrograms" id="wp" role="dialog">
-                <div class="content">
-                    <form method="post">
-                        <label for="pn">Program Name</label>
-                        <input type="text" id="pn" name="pn" value="" required>
-                        <br>
-
-                        <label for="services">Services</label>
-                        <input type="text" id="services" name="services" value="" required>
-                        <br>
-
-                        <label for="availability">Availability</label>
-                        <input type="text" id="availability" name="availability" value="" required>
-                        <br>
-
-                        <label for="ci">Contact Info</label>
-                        <input type="text" id="ci" name="ci" value="" required>
-                        <br>
-
-                        <button type="submit">Submit</button>
-                    </form>
-
-                    <div class="footer">
-                        <button id="closeEight">Close</button>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </section>
@@ -462,20 +433,6 @@
         }
         RS();
 
-        function WP(){
-            const wp = document.getElementById('eight');
-            const modal = document.getElementById('wp');
-            const closebtneight = document.getElementById('closeEight');
-
-            wp.addEventListener('click', () => {
-                modal.style.display = 'block';
-            });
-
-            closebtneight.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-        }
-        WP();
     </script>
 </body>
 </html>
