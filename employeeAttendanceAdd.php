@@ -78,11 +78,11 @@
         </nav>
 
         <div class="userlogo">
-            <p>Bijay Gurung</p>
+            <p>Suraj Kanwar</p>
             <div class="image"></div>
         </div>
 
-        <p class="role">Admin</p>
+        <p class="role">User</p>
     </header>
 
     <section>

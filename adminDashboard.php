@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
             <button id="performanceEvaluation">Performance Evaluation</button>
-            <button id="logout">Logout</button>
+            <button id="logout" onclick="ae()">Logout</button>
 
             <script>
                 function dashboard(){
@@ -104,11 +104,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     location = 'adminEmployeePayroll.php';
                 }
 
-                function pm(){
+                function bm(){
                     location = 'adminBenefitManagementSystem.php';
                 }
 
-
+                function ae(){
+                    location = 'index.html';
+                }
                 
             </script>
         </div>    
