@@ -31,5 +31,5 @@ function bm(){
 }
 
 function pe(){
-    location = "adminPerformanceEvaluation.html";
+    location = "adminPerformanceEvaluation.php";
 }

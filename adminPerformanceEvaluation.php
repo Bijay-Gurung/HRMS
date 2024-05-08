@@ -1,3 +1,44 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root"; 
+$password = ""; 
+$dbname = "hrms"; 
+$db = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['evaluate'])){
+    $eid = isset($_POST['eid']) ? validateInput($_POST['eid']) : "";
+    $ename = isset($_POST['ename']) ? validateInput($_POST['ename']) : "";
+    $role = isset($_POST['role']) ? validateInput($_POST['role']) : "";
+    $department = isset($_POST['department']) ? validateInput($_POST['department']) : "";
+    $branch = isset($_POST['branch']) ? validateInput($_POST['branch']) : "";
+    $date = isset($_POST['date']) ? validateInput($_POST['date']) : "";
+
+    $stmt = $db->prepare("INSERT INTO pe(eid, ename, role, department, branch, date) VALUES (?,?,?,?,?,?)");
+    $stmt->bind_param('ssssss',$eid,$ename,$role,$department,$branch,$date);
+    if($stmt->execute()){
+        header("Location: performanceReview.php");
+        exit();
+    } else{
+        echo "<script>alert('Insertion failed: " . $db->error . "');</script>";
+    }
+}
+
+// Function to sanitize input
+function validateInput($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
