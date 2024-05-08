@@ -29,3 +29,7 @@ function pm(){
 function bm(){
     location = "adminBenefitManagementSystem.php";
 }
+
+function pe(){
+    location = "adminPerformanceEvaluation.html";
+}
