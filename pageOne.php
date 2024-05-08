@@ -32,7 +32,7 @@
                     <input type="text" id="fullname" name="fullname" placeholder="Full Name" required><br>
                     <input type="text" id="address" name="address" placeholder="Address" required><br>
                     <input type="text" id="contact" name="contact" placeholder="Contact" required><br>
-                    <input type="text" id="martialStatus" name="martialStatus" placeholder="Martial Status" required>
+                    <input type="text" id="martialStatus" name="gender" placeholder="Gender" required>
                 </div>
 
                 <div class="emergencyContact">
@@ -78,7 +78,7 @@
             $fullname = validateInput($_POST['fullname']);
             $address = validateInput($_POST['address']);
             $contact = validateInput($_POST['contact']);
-            $martialStatus = validateInput($_POST['martialStatus']);
+            $gender = validateInput($_POST['gender']);
             $emergencyName = validateInput($_POST['name']);
             $emergencyAddress = validateInput($_POST['emergencyAddress']);
             $emergencyContact = validateInput($_POST['emergencyContact']);
@@ -104,13 +104,13 @@
             } else {
                 $image_data = addslashes(file_get_contents($file_temp));
 
-                $sql = "INSERT INTO table_1 (fullname, address, contact, martial_status, emergency_name, emergency_address, emergency_contact, title, department, supervisor, work_location, start_date, salary, role, image_data) 
-                VALUES ('$fullname', '$address', '$contact', '$martialStatus', '$emergencyName', '$emergencyAddress', '$emergencyContact', '$title', '$department', '$supervisor', '$workLocation', '$startDate', '$salary', '$role', '$image_data')";
+                $sql = "INSERT INTO table_1 (fullname, address, contact, gender, emergency_name, emergency_address, emergency_contact, title, department, supervisor, work_location, start_date, salary, role, image_data) 
+                VALUES ('$fullname', '$address', '$contact', '$gender', '$emergencyName', '$emergencyAddress', '$emergencyContact', '$title', '$department', '$supervisor', '$workLocation', '$startDate', '$salary', '$role', '$image_data')";
 
                 if (mysqli_query($conn, $sql)) {
                     $message = "New record created successfully";
                     
-                    $_POST['fullname'] = $_POST['address'] = $_POST['contact'] = $_POST['martialStatus'] = $_POST['name'] = $_POST['emergencyAddress'] = $_POST['emergencyContact'] = $_POST['title'] = $_POST['department'] = $_POST['supervisor'] = $_POST['workLocation'] = $_POST['startDate'] = $_POST['salary'] = $_POST['role'] = "";
+                    $_POST['fullname'] = $_POST['address'] = $_POST['contact'] = $_POST['gender'] = $_POST['name'] = $_POST['emergencyAddress'] = $_POST['emergencyContact'] = $_POST['title'] = $_POST['department'] = $_POST['supervisor'] = $_POST['workLocation'] = $_POST['startDate'] = $_POST['salary'] = $_POST['role'] = "";
                     
                     header("Location: pageTwo.php");
                     exit;

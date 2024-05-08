@@ -6,64 +6,59 @@
     <title>Human Resource Management System</title>
     <link href="employeeAttendanceChecker.css" rel="stylesheet">
     <style>
-    .employeeAttendance {
-        margin: 20px;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-        grid-column-start: 6;
-        grid-column-end: 13;
-        grid-row-start: 1;
-        grid-row-end: 7;
-        overflow: hidden;
-        overflow-y: scroll;
-        box-shadow: 2px 2px 9px #808080;
-    }
+        .employeeAttendance {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            grid-column-start: 6;
+            grid-column-end: 13;
+            grid-row-start: 1;
+            grid-row-end: 7;
+            overflow: hidden;
+            overflow-y: scroll;
+            box-shadow: 2px 2px 9px #808080;
+        }
 
-    /* Form labels */
-    .employeeAttendance label {
-        font-weight: bold;
-    }
+        .employeeAttendance label {
+            font-weight: bold;
+        }
 
-    /* Input fields */
-    .employeeAttendance input[type="text"],
-    .employeeAttendance input[type="month"],
-    .employeeAttendance input[type="checkbox"] {
-        width: 100%;
-        padding: 10px;
-        margin: 5px 0;
-        box-sizing: border-box;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-    }
+        .employeeAttendance input[type="text"],
+        .employeeAttendance input[type="month"],
+        .employeeAttendance input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
 
-    /* Checkbox container */
-    .employeeAttendance input[type="checkbox"] {
-        transform: scale(1.5); /* Increase checkbox size */
-        margin-right: 10px; /* Add some spacing between checkbox and label */
-    }
+        .employeeAttendance input[type="checkbox"] {
+            transform: scale(1.5); 
+            margin-right: 10px; 
+        }
 
-    /* Checkbox label */
-    .employeeAttendance label[for^="week"] {
-        display: inline-block; /* Ensure labels are inline */
-        vertical-align: middle; /* Align labels vertically with checkboxes */
-        margin-right: 20px; /* Adjust spacing between checkbox and label */
-    }
+        .employeeAttendance label[for^="week"] {
+            display: inline-block; 
+            vertical-align: middle;
+            margin-right: 20px; 
+        }
 
-    /* Submit button */
-    .employeeAttendance button[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-    }
+        .employeeAttendance button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
 
-    .employeeAttendance button[type="submit"]:hover {
-        background-color: #45a049;
-    }
+        .employeeAttendance button[type="submit"]:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -134,10 +129,11 @@
                 $month = mysqli_real_escape_string($conn, $_POST['month']);
                 $week = mysqli_real_escape_string($conn, $_POST['week']);
                 $week_days = implode(", ", $_POST['week_days']); 
+                $status = mysqli_real_escape_string($conn, $_POST['status']);
 
               
-                $sql = "INSERT INTO attendance (employee_name, month, week, week_days)
-                        VALUES ('$employee_name', '$month', '$week', '$week_days')";
+                $sql = "INSERT INTO attendance (employee_name, month, week, week_days, Status)
+                        VALUES ('$employee_name', '$month', '$week', '$week_days', '$status')";
 
                 if (mysqli_query($conn, $sql)) {
                     echo "Attendance recorded successfully";
@@ -191,6 +187,9 @@
                 <label for="week_saturday">Saturday:</label>
                 <input type="checkbox" id="week_saturday" name="week_days[]" value="Saturday">
                 <label for="week_saturday"></label><br><br>
+
+                <label for="Attendance">Status:</label><br>
+                <input type="text" id="status" name="status"><br><br>
 
                 <button type="submit">Submit Attendance</button>
             </form>

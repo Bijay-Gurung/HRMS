@@ -70,7 +70,7 @@ mysqli_close($conn);
         </div>
 
         <nav>
-            <a href="adminDashboard.php" id="home">Home</a>
+            <a href="userDashboard.php" id="home">Home</a>
         </nav>
 
         <div class="userlogo">
@@ -86,8 +86,8 @@ mysqli_close($conn);
             <button id="dashboard" onclick="das()">Dashboard</button>
             <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
             <button id="payroll" onclick="ab()">Payroll Management</button>
-            <button id="Benefits">Benefits Management</button>
-            <button id="performanceEvaluation">Performance Evaluation</button>
+            <button id="Benefits" onclick="ac()">Benefits Management</button>
+            <button id="performanceEvaluation"  onclick="ad()">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
@@ -103,6 +103,14 @@ mysqli_close($conn);
                     location = 'employeePayroll.php';
                 }
 
+                function ac(){
+                    location = 'employeeBenefitManagement.php';
+                }
+
+                function ad(){
+                    location = 'employeePayroll.php';
+                }
+
                 function eac(){
                     location = 'employeeAttendanceChecker.php';
                 }
@@ -111,7 +119,7 @@ mysqli_close($conn);
                     location = 'index.html';
                 }
             </script>
-        </div>
+        </div>    
 
 
         <!-- Search Form -->

@@ -111,6 +111,7 @@
                             echo "<td>" . $row['month'] . "</td>";
                             echo "<td>" . $row['week'] . "</td>";
                             echo "<td>" . $row['week_days'] . "</td>"; 
+                            // echo "<td>" . $row['Status'] . "</td>"; 
                             echo "</tr>";
                         }
                     } else {
