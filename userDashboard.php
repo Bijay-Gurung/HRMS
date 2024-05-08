@@ -47,7 +47,7 @@ if ($db->connect_error) {
             <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
             <button id="payroll" onclick="ab()">Payroll Management</button>
             <button id="Benefits">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
@@ -64,7 +64,7 @@ if ($db->connect_error) {
                 }
 
                 function eac(){
-                    location = 'employeeAttendanceChecker.php';
+                    location = 'employeeAttendanceAdd.php';
                 }
 
                 function ae(){

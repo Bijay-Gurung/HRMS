@@ -31,8 +31,8 @@
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
-            <button id="logout">Logout</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
+            <button id="logout" onclick="ae()">Logout</button>
 
             <script>
                 function dashboard(){
@@ -45,6 +45,14 @@
 
                 function pm(){
                     window.location.href = 'adminEmployeePayroll.php';
+                }
+
+                function bm(){
+                    location = 'adminBenefitManagementSystem.php';
+                }
+
+                function ae(){
+                    location = 'index.html';
                 }
             </script>
         </div>    
@@ -142,15 +150,14 @@
         table = document.getElementById("employeeTable");
         tr = table.getElementsByTagName("tr");
 
-        // Loop through all table rows, and hide those that don't match the search query
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0]; // Get the first <td> (employee name)
+            td = tr[i].getElementsByTagName("td")[0];
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = ""; // Display the row if the employee name matches the search query
+                    tr[i].style.display = "";
                 } else {
-                    tr[i].style.display = "none"; // Hide the row if the employee name doesn't match the search query
+                    tr[i].style.display = "none"; 
                 }
             }
         }

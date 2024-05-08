@@ -27,28 +27,32 @@
 
     <section>
     <div class="sideNavbar">
-            <button id="dashboard" onclick="das()">Dashboard</button>
-            <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
-            <button id="payroll" onclick="ab()">Payroll Management</button>
-            <button id="Benefits">Benefits Management</button>
-            <button id="performanceEvaluation">performance Evaluation</button>
+            <button id="dashboard" onclick="dashboard()">Dashboard</button>
+            <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
+            <button id="payroll" onclick="pm()">Payroll Management</button>
+            <button id="Benefits" onclick="bm()">Benefits Management</button>
+            <button id="performanceEvaluation">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
-                function das(){
-                    location = 'UserDashboard.php';
+                 function dashboard(){
+                    window.location.href = 'adminDashboard.php';
                 }
 
-                function am(){
-                    location = 'employeeDataManagement.php';
+                function edm(){
+                    window.location.href = 'adminEmployeeDataManagement.php';
                 }
 
-                function ab(){
-                    location = 'employeePayroll.php';
+                function pm(){
+                    window.location.href = 'adminEmployeePayroll.php';
                 }
 
                 function eac(){
                     location = 'employeeAttendanceChecker.php';
+                }
+
+                function bm(){
+                    location = 'adminBenefitManagementSystem.php';
                 }
 
                 function ae(){
@@ -77,45 +81,42 @@
                 <tbody>
 
                 <?php
-                    // Establish database connection
+                
                     $conn = mysqli_connect("localhost", "root", "", "HRMS");
 
-                    // Check connection
+                   
                     if (!$conn) {
                         die("Connection failed: " . mysqli_connect_error());
                     }
 
-                    // Initialize variables to store search query and SQL query
+                    
                     $search_query = "";
                     $sql = "SELECT * FROM attendance";
 
-                    // Check if the search form is submitted with a search query
+             
                     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['searchbar'])) {
-                        // Sanitize user input to prevent SQL injection
+                     
                         $search_query = mysqli_real_escape_string($conn, $_POST['searchbar']);
 
-                        // Modify SQL query to include search condition
                         $sql = "SELECT * FROM attendance WHERE employee_name LIKE '%$search_query%'";
                     }
 
-                    // Fetch attendance data
+                    
                     $result = mysqli_query($conn, $sql);
 
-                    // Display attendance data in the table
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>";
                             echo "<td>" . $row['employee_name'] . "</td>";
                             echo "<td>" . $row['month'] . "</td>";
                             echo "<td>" . $row['week'] . "</td>";
-                            echo "<td>" . $row['week_days'] . "</td>"; // Assuming week_days is stored as a comma-separated string
+                            echo "<td>" . $row['week_days'] . "</td>"; 
                             echo "</tr>";
                         }
                     } else {
                         echo "<tr><td colspan='4'>No attendance records found</td></tr>";
                     }
 
-                    // Close connection
                     mysqli_close($conn);
                     ?>
 
