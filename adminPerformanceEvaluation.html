@@ -57,8 +57,30 @@
                 
             </script>
         </div>    
-
         
+        <div class="content">
+            <div class="title">
+                <h3>Performance Evaluation</h3>
+            </div>
+
+            <div class="action">
+                <form method="post">
+                    <input type="text" id="eid" name="eid" value="" placeholder="Employee ID" required>
+                    <input type="text" id="ename" name="ename" value="" placeholder="Employee Name" required>
+                    <input type="text" id="role" name="role" value="" placeholder="Role" required>
+                    <input type="text" id="department" name="department" placeholder="Department" required>
+                    <input type="text" id="branch" name="branch" placeholder="Branch" required>
+                    <input type="date" id="date" name="date" required>
+                    <button type="submit" name="evaluate">Evaluate</button>
+                </form>
+            </div>
+
+            <div class="performanceList"></div>
+
+            <div class="generateReport">
+                <button onclick="gr()">Generate Report</button>
+            </div>
+        </div>
     </section>
 
     <script src="script.js"></script>
