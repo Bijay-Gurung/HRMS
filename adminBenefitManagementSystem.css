@@ -215,3 +215,474 @@ section{
     position: relative;
     left: 20px;
 }
+
+.HealthAndDentalInsurance {
+    grid-column-start: 4;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.HealthAndDentalInsurance .content {
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    box-shadow: 2px 2px 9px 1px #686060;
+    height: 400px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-left: 80px;
+    border-radius: 5px;
+    
+}
+
+.HealthAndDentalInsurance .content label{
+    margin-top: 10px;
+}
+
+.HealthAndDentalInsurance .content input{
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 9px;
+    border: none;
+}
+
+.HealthAndDentalInsurance .content button{
+    height: 20px;
+    width: 60px;
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    border-radius: 9px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 27%;
+}
+
+.HealthAndDentalInsurance .footer button {
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 1px #808080;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    left: 67%;
+}
+
+.LifeInsurance {
+    grid-column-start: 4;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.LifeInsurance .content {
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    box-shadow: 2px 2px 9px 1px #686060;
+    height: 250px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-left: 80px;
+    border-radius: 5px;
+    
+}
+
+.LifeInsurance .content label{
+    margin-top: 10px;
+}
+
+.LifeInsurance .content input{
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 9px;
+    border: none;
+}
+
+.LifeInsurance .content button{
+    height: 20px;
+    width: 60px;
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    border-radius: 9px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 27%;
+}
+
+.LifeInsurance .footer button {
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 1px #808080;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 40px;
+    left: 65%;
+}
+
+.Short-LongTermDisability {
+    grid-column-start: 4;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.Short-LongTermDisability .content {
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    box-shadow: 2px 2px 9px 1px #686060;
+    height: 350px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-left: 80px;
+    border-radius: 5px;
+    
+}
+
+.Short-LongTermDisability .content label{
+    margin-top: 10px;
+}
+
+.Short-LongTermDisability .content input{
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 9px;
+    border: none;
+}
+
+.Short-LongTermDisability .content button{
+    height: 20px;
+    width: 60px;
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    border-radius: 9px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 27%;
+}
+
+.Short-LongTermDisability .footer button {
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 1px #808080;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 60px;
+    left: 65%;
+}
+
+
+.EmployeeAssistance {
+    grid-column-start: 4;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.EmployeeAssistance .content {
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    box-shadow: 2px 2px 9px 1px #686060;
+    height: 200px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-left: 80px;
+    border-radius: 5px;
+    
+}
+
+.EmployeeAssistance .content label{
+    margin-top: 10px;
+}
+
+.EmployeeAssistance .content input{
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 9px;
+    border: none;
+}
+
+.EmployeeAssistance .content button{
+    height: 20px;
+    width: 60px;
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    border-radius: 9px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 27%;
+}
+
+.EmployeeAssistance .footer button {
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 1px #808080;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 60px;
+    left: 65%;
+}
+
+.LeaveBenefit {
+    grid-column-start: 4;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.LeaveBenefit .content {
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    box-shadow: 2px 2px 9px 1px #686060;
+    height: 200px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-left: 80px;
+    border-radius: 5px;
+    
+}
+
+.LeaveBenefit .content label{
+    margin-top: 10px;
+}
+
+.LeaveBenefit .content input{
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 9px;
+    border: none;
+}
+
+.LeaveBenefit .content button{
+    height: 20px;
+    width: 60px;
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    border-radius: 9px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 27%;
+}
+
+.LeaveBenefit .footer button {
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 1px #808080;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 60px;
+    left: 65%;
+}
+
+
+.EducationalBenefits {
+    grid-column-start: 4;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.EducationalBenefits .content {
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    box-shadow: 2px 2px 9px 1px #686060;
+    height: 180px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-left: 80px;
+    border-radius: 5px;
+    
+}
+
+.EducationalBenefits .content label{
+    margin-top: 10px;
+}
+
+.EducationalBenefits .content input{
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 9px;
+    border: none;
+}
+
+.EducationalBenefits .content button{
+    height: 20px;
+    width: 60px;
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    border-radius: 9px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 27%;
+}
+
+.EducationalBenefits .footer button {
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 1px #808080;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 60px;
+    left: 65%;
+}
+
+.RetirementSaving {
+    grid-column-start: 4;
+    grid-column-end: 10;
+    grid-row-start: 2;
+    grid-row-end: 7;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.RetirementSaving .content {
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    box-shadow: 2px 2px 9px 1px #686060;
+    height: 250px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding-top: 10px;
+    padding-left: 80px;
+    border-radius: 5px;
+    
+}
+
+.RetirementSaving .content label{
+    margin-top: 10px;
+}
+
+.RetirementSaving .content input{
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-radius: 9px;
+    border: none;
+}
+
+.RetirementSaving .content button{
+    height: 20px;
+    width: 60px;
+    background-color: #fff;
+    color: rgb(47, 55, 85);
+    border-radius: 9px;
+    border: none;
+    margin-top: 20px;
+    margin-left: 27%;
+}
+
+.RetirementSaving .footer button {
+    height: 30px;
+    width: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 9px 1px #808080;
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    position: relative;
+    top: 60px;
+    left: 65%;
+}
+

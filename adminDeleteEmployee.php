@@ -138,7 +138,7 @@
                     <input type="text" id="fullname" name="fullname" placeholder="Full Name" value="<?php echo isset($row['fullname']) ? $row['fullname'] : ''; ?>" required><br>
                     <input type="text" id="address" name="address" placeholder="Address" value="<?php echo isset($row['address']) ? $row['address'] : ''; ?>" required><br>
                     <input type="text" id="contact" name="contact" placeholder="Contact" value="<?php echo isset($row['contact']) ? $row['contact'] : ''; ?>" required><br>
-                    <input type="text" id="martialStatus" name="martialStatus" placeholder="Martial Status" value="<?php echo isset($row['martial_status']) ? $row['martial_status'] : ''; ?>" required>
+                    <input type="text" id="martialStatus" name="gender" placeholder="gender" value="<?php echo isset($row['gender']) ? $row['gender'] : ''; ?>" required>
                 </div>
 
                 <div class="emergencyContact">

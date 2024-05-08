@@ -14,8 +14,8 @@
         </div>
 
         <nav>
-            <a href="adminDashboard.html" id="home">Home</a>
-            <a href="#" id="edm">Employee Data Management</a>
+            <a href="adminDashboard.php" id="home">Home</a>
+            <a href="adminEmployeeData" id="edm">Employee Data Management</a>
             <a href="#" id="pm">Payroll Management</a>
             <a href="#" id="con">Benefits Management</a>
             <a href="#" id="pe">Performance Evaluations</a>

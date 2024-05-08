@@ -60,55 +60,62 @@
             mysqli_close($conn);
         }
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['search'])) {
             $conn = mysqli_connect("localhost", "root", "", "HRMS");
-
+    
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
-
+    
+            $search_query = validateInput($_GET['search']);
+    
+            $sql = "SELECT * FROM table_1 WHERE fullname LIKE '%$search_query%'";
+            $result = mysqli_query($conn, $sql);
+    
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+            } else {
+                echo "<script>alert('No results found for the given name.');</script>";
+            }
+    
+            mysqli_close($conn);
+        }
+    
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['fullname'])) {
+            $conn = mysqli_connect("localhost", "root", "", "HRMS");
+    
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+    
             $id = validateInput($_POST['id']);
             $fullname = validateInput($_POST['fullname']);
             $address = validateInput($_POST['address']);
             $contact = validateInput($_POST['contact']);
-            $martialStatus = validateInput($_POST['martialStatus']);
-            $emergencyName = validateInput($_POST['name']);
-            $emergencyAddress = validateInput($_POST['emergencyAddress']);
-            $emergencyContact = validateInput($_POST['emergencyContact']);
+            $gender = validateInput($_POST['gender']);
+            $emergency_name = validateInput($_POST['name']);
+            $emergency_address = validateInput($_POST['emergencyAddress']);
+            $emergency_contact = validateInput($_POST['emergencyContact']);
             $title = validateInput($_POST['title']);
             $department = validateInput($_POST['department']);
             $supervisor = validateInput($_POST['supervisor']);
-            $workLocation = validateInput($_POST['workLocation']);
-            $startDate = validateInput($_POST['startDate']);
+            $work_location = validateInput($_POST['workLocation']);
+            $start_date = validateInput($_POST['startDate']);
             $salary = validateInput($_POST['salary']);
             $role = validateInput($_POST['role']);
-
-            $file_temp = $_FILES['pp']['tmp_name'];
-            $file_type = $_FILES['pp']['type'];
-            $file_size = $_FILES['pp']['size'];
-
-            if ($file_size > 500000) { 
-                $error = "File size is too large. Please upload an image smaller than 500 KB.";
-            } elseif (!in_array($file_type, array("image/jpeg", "image/png"))) {
-                $error = "Only JPEG and PNG images are allowed.";
-            } elseif (!preg_match('/^\d{10}$/', $contact)) { 
-                $error = "Contact number must be exactly 10 digits.";
+    
+            $sql = "UPDATE table_1 SET fullname='$fullname', address='$address', contact='$contact', gender='$gender', emergency_name='$emergency_name', emergency_address='$emergency_address', emergency_contact='$emergency_contact', title='$title', department='$department', supervisor='$supervisor', work_location='$work_location', start_date='$start_date', salary='$salary', role='$role' WHERE fullname='$fullname'";
+    
+            if (mysqli_query($conn, $sql)) {
+                echo "<script>alert('Record updated successfully');</script>";
             } else {
-                $image_data = addslashes(file_get_contents($file_temp));
-
-                $sql = "UPDATE table_1 SET fullname='$fullname', address='$address', contact='$contact', martial_status='$martialStatus', emergency_name='$emergencyName', emergency_address='$emergencyAddress', emergency_contact='$emergencyContact', title='$title', department='$department', supervisor='$supervisor', work_location='$workLocation', start_date='$startDate', salary='$salary', role='$role', image_data='$image_data' WHERE fullname='$fullname'";
-
-                if (mysqli_query($conn, $sql)) {
-                    echo "<script>alert('Record updated successfully'); window.location.href = 'adminEmployeeDataManagement.php';</script>";
-                    exit;
-                } else {
-                    echo "Error updating record: " . mysqli_error($conn);
-                }
+                echo "Error updating record: " . mysqli_error($conn);
             }
-
+    
             mysqli_close($conn);
         }
-        ?>
+    ?>
+
 
     <section>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
@@ -121,7 +128,7 @@
                     <input type="text" id="fullname" name="fullname" placeholder="Full Name" value="<?php echo isset($row['fullname']) ? $row['fullname'] : ''; ?>" required><br>
                     <input type="text" id="address" name="address" placeholder="Address" value="<?php echo isset($row['address']) ? $row['address'] : ''; ?>" required><br>
                     <input type="text" id="contact" name="contact" placeholder="Contact" value="<?php echo isset($row['contact']) ? $row['contact'] : ''; ?>" required><br>
-                    <input type="text" id="martialStatus" name="martialStatus" placeholder="Martial Status" value="<?php echo isset($row['martial_status']) ? $row['martial_status'] : ''; ?>" required>
+                    <input type="text" id="gender" name="gender" placeholder="Gender" value="<?php echo isset($row['gender']) ? $row['gender'] : ''; ?>" required><br>
                 </div>
 
                 <div class="emergencyContact">
