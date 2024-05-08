@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benefits</title>
-    <link href="employeeBenefitManagement.css" rel="stylesheet"> -->
+    <link href="employeeBenefitManagement.css" rel="stylesheet"> 
 </head>
 <body>
 <header>
@@ -13,23 +13,18 @@
             <h3 id="logoName">Innovate Nepal</h3>
         </div>
 
-        <div class="userlogo">
-            <p>Bijay Gurung</p>
-            <div class="image"></div>
-        </div>
-
-        <p class="role">Admin</p>
-    </header>
-
-    <section>
-    <div class="sideNavbar">
+        <nav>
             <a href="UserDashboard.php" id="home">Dashboard</a>
             <a href="employeeDataManagement.php" id="edm">Employee Data Management</a>
             <a href="employeePayroll.php" id="pm">Payroll Management</a>
             <a href="employeeBenefitManagement.php" id="con">Benefits Management</a>
             <a href="#" id="pe">Performance Evaluations</a>
             <a href="index.html">Logout</a>
-        </div>    
+        </nav>
+
+    </header>
+
+    <section>  
 
     <?php
         $db_host = 'localhost';
@@ -59,7 +54,7 @@
             $result = $db->query($query);
 
             if ($result->num_rows > 0) {
-                echo "<h2>$tableName</h2>";
+                echo "<h1>$tableName</h1>";
                 echo "<table border='1'>";
                 echo "<tr>";
                 foreach ($columnNames as $columnName) {
