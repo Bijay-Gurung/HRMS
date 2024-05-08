@@ -31,7 +31,7 @@
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation" onclick="pe()">Performance Evaluation</button>
+            <button id="performanceEvaluation" onclick="cm()">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
@@ -49,6 +49,10 @@
 
                 function bm(){
                     location = 'adminBenefitManagementSystem.php';
+                }
+
+                function cm(){
+                    location = 'adminPerformanceEvaluation.php';
                 }
 
                 function ae(){

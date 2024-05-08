@@ -18,7 +18,7 @@
             <a href="employeeDataManagement.php" id="edm">Employee Data Management</a>
             <a href="employeePayroll.php" id="pm">Payroll Management</a>
             <a href="employeeBenefitManagement.php" id="con">Benefits Management</a>
-            <a href="#" id="pe">Performance Evaluations</a>
+            <a href="employeePerformanceEvaluation.php" id="pe">Performance Evaluations</a>
             <a href="index.html">Logout</a>
         </nav>
 
@@ -38,7 +38,6 @@
             die("Connection failed" . $db->connect_error);
         }
 
-        // Function to sanitize input
         function validateInput($data) {
             $data = trim($data);
             $data = stripslashes($data);
@@ -46,7 +45,6 @@
             return $data;
         }
 
-        // Function to retrieve and display data from a table
         function displayTable($tableName, $columnNames) {
             global $db;
 
@@ -74,7 +72,6 @@
             }
         }
 
-        // Define table names and their corresponding column names
         $tables = array(
             "hdi" => array("SN","Insurance Provider", "Policy Number", "Policy Start Date", "Policy End Date", "Type of Coverage", "Coverage Amount", "Deductible Amount", "Co Payment", "Network Providers", "Emergency Contact"),
             "li" => array("SN","Insurance Provider", "Policy Number", "Policy Start Date", "Policy End Date", "Coverage Amount", "Beneficiary"),
@@ -85,7 +82,6 @@
             "rs" => array("SN","Plan Name", "Plan Type", "Employer Contribution", "Vesting Schedule", "Investment Options", "Contact Info")
         );
 
-        // Display data for each table
         foreach ($tables as $tableName => $columnNames) {
             displayTable($tableName, $columnNames);
         }
