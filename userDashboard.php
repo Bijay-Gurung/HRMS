@@ -63,7 +63,7 @@ if ($db->connect_error) {
                 }
 
                 function ad(){
-                    location = 'employeePayroll.php';
+                    location = 'employeePerformance.php';
                 }
 
                 function eac(){

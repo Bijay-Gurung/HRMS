@@ -110,6 +110,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     location = 'index.html';
                 }
                 
+                function pe(){
+                    location = 'adminPerformanceEvaluation.php';
+                }
             </script>
         </div>    
         <?php
@@ -403,7 +406,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
 
     <script src="script.js"></script>
-    <script src="adminNav.js"></script>
     <script src="https://kit.fontawesome.com/4f9d824da5.js" crossorigin="anonymous"></script>
 </body>
 </html>
