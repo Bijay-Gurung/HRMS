@@ -78,17 +78,66 @@
 
         <div class="services" id="service">
             <h3 class="title4">Our Services</h3>
-            <div class="box one">
-                <div class="service service1">Employee Manager</div>
+            <div class="box one" id="service1">
+                <div class="service service1" >Employee Manager</div>
             </div>
-            <div class="box two">
+            <div class="box two" id="service2">
                 <div class="service service2">Payroll</div>
             </div>
-            <div class="box three">
+            <div class="box three" id="service3">
                 <div class="service service3">Benefits</div>
             </div>
-            <div class="box four">
+            <div class="box four" id="service4">
                 <div class="service service4">Performance Evaluation</div>
+            </div>
+        </div>
+
+
+        <div id="EM" role="dialog">
+            <div class="content">
+                Our Employee Management service helps you effectively manage your workforce throughout their entire journey with us. 
+                From seamless onboarding to efficient offboarding, we take care of every aspect of employee management, allowing you to 
+                focus on your core business.
+            </div>
+
+            <div class="footer">
+                <button id="close1">Close</button>
+            </div>
+        </div>
+
+        <div id="PR" role="dialog">
+            <div class="content">
+                With our Payroll Management service, we simplify your payroll process, ensuring accuracy and compliance every step of the way.
+                 From calculating wages to managing taxes and generating payslips, we handle it all, so you can spend less time on payroll
+                  and more time on growing your business.
+            </div>
+
+            <div class="footer">
+                <button id="close2">Close</button>
+            </div>
+        </div>
+
+        <div id="Bene" role="dialog">
+            <div class="content">
+                Attract and retain top talent by offering competitive benefits packages with our Benefit Management service. 
+                We help you design, implement, and administer employee benefits such as health insurance and retirement plans,
+                ensuring your employees feel valued and supported.
+            </div>
+
+            <div class="footer">
+                <button id="close3">Close</button>
+            </div>
+        </div>
+
+        <div id="PE" role="dialog">
+            <div class="content">
+                Drive employee performance and development with our Performance Evaluation service.
+                We provide valuable insights into your team's strengths and areas for improvement, helping you set meaningful 
+                goals and track progress to ensure your workforce is performing at its best.
+            </div>
+
+            <div class="footer">
+                <button id="close4">Close</button>
             </div>
         </div>
     </section>
@@ -100,13 +149,6 @@
             <p class="address"><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tokha, Kathmandu, Nepal</p>
             <p class="phoneNumber"><i class="fa-solid fa-phone" style="color: #ffffff;"></i> +977- 9813262790</p>
             <p class="mail"><i class="fa-solid fa-envelope" style="color: #ffffff;"></i> InnovateNepal.com.np</p>
-
-            <div class="socialMedia">
-                <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i>
-                <i class="fa-brands fa-square-x-twitter" style="color: #ffffff;"></i>
-                <i class="fa-brands fa-square-instagram" style="color: #ffffff;"></i>
-                <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
-            </div>
         </div>
 
         <div class="srvc">
@@ -126,6 +168,68 @@
 
         <div class="map"></div>
     </footer>
+
+    <script>
+            function EM(){
+                const em = document.getElementById('service1');
+                const modal = document.getElementById('EM');
+                const close1 = document.getElementById('close1');
+                
+                em.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                });
+                
+                close1.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+            }
+            EM();
+
+            function PR(){
+                const pr = document.getElementById('service2');
+                const modal = document.getElementById('PR');
+                const close2 = document.getElementById('close2');
+                
+                pr.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                });
+                
+                close2.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+            }
+            PR();
+
+            function BENE(){
+                const Bene = document.getElementById('service3');
+                const modal = document.getElementById('Bene');
+                const close3 = document.getElementById('close3');
+                
+                Bene.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                });
+                
+                close3.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+            }
+            BENE();
+
+            function PE(){
+                const pe = document.getElementById('service4');
+                const modal = document.getElementById('PE');
+                const close4 = document.getElementById('close4');
+                
+                pe.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                });
+                
+                close4.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+            }
+            PE();
+    </script>
     <script src="https://kit.fontawesome.com/4f9d824da5.js" crossorigin="anonymous"></script>
 </body>
 </html>
