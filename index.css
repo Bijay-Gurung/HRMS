@@ -227,6 +227,9 @@ section{
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 4;
+    background-image: url("./Images/employee\ management.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .two{
@@ -234,6 +237,9 @@ section{
     grid-column-end: 7;
     grid-row-start: 2;
     grid-row-end: 4;
+    background-image: url("./Images/payroll.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .three{
@@ -241,6 +247,9 @@ section{
     grid-column-end: 10;
     grid-row-start: 2;
     grid-row-end: 4;
+    background-image: url("./Images/benefit.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .four{
@@ -248,6 +257,9 @@ section{
     grid-column-end: 13;
     grid-row-start: 2;
     grid-row-end: 4;
+    background-image: url("./Images/performance\ evaluation.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .service{

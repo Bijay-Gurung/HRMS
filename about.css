@@ -85,9 +85,8 @@ section{
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 5;
-    background-color: rgb(47, 55, 85);
+    background-image: url("./Images/about.jpeg");
     border-radius: 15px;
-    background-image: url('about.jpeg');
     background-size: cover;
     background-position: center;
  }
