@@ -69,7 +69,7 @@
         </div>
 
         <nav>
-            <a href="adminDashboard.php" id="home">Home</a>
+            <a href="userDashboard.php" id="home">Home</a>
         </nav>
 
         <div class="userlogo">
@@ -85,8 +85,8 @@
             <button id="dashboard" onclick="das()">Dashboard</button>
             <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
             <button id="payroll" onclick="ab()">Payroll Management</button>
-            <button id="Benefits">Benefits Management</button>
-            <button id="performanceEvaluation">Performance Evaluation</button>
+            <button id="Benefits" onclick="ac()">Benefits Management</button>
+            <button id="performanceEvaluation" onclick="ad()">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
@@ -102,8 +102,16 @@
                     location = 'employeePayroll.php';
                 }
 
-                function eac(){
+                function ac(){
+                    location = 'employeeBenefitManagement.php';
+                }
+
+                function oac(){
                     location = 'employeeAttendanceChecker.php';
+                }
+
+                function ad(){
+                    location = 'employeePerformanceEvaluation.php';
                 }
 
                 function ae(){

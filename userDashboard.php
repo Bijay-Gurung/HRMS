@@ -1,9 +1,6 @@
 <?php
-// Database connection
 $db = new mysqli("localhost", "root", "", "HRMS");
 
-
-// Check Database Connection
 if ($db->connect_error) {
     die("Connection failed" . $db->connect_error);
 }
@@ -38,11 +35,11 @@ if ($db->connect_error) {
 
     <section>
     <div class="sideNavbar">
-            <button id="dashboard" onclick="das()">Dashboard</button>
+    <button id="dashboard" onclick="das()">Dashboard</button>
             <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
             <button id="payroll" onclick="ab()">Payroll Management</button>
             <button id="Benefits" onclick="ac()">Benefits Management</button>
-            <button id="performanceEvaluation"  onclick="ad()">Performance Evaluation</button>
+            <button id="performanceEvaluation" onclick="ad()">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
@@ -62,12 +59,17 @@ if ($db->connect_error) {
                     location = 'employeeBenefitManagement.php';
                 }
 
+<<<<<<< HEAD
                 function ad(){
                     location = 'employeePerformance.php';
+=======
+                function oac(){
+                    location = 'employeeAttendanceChecker.php';
+>>>>>>> 3630c1f10ac08e9c42de791eda1a5518026b1118
                 }
 
-                function eac(){
-                    location = 'employeeAttendanceChecker.php';
+                function ad(){
+                    location = 'employeePerformanceEvaluation.php';
                 }
 
                 function ae(){
@@ -227,7 +229,7 @@ if ($db->connect_error) {
         </div>
     </div>
 
-            <div class="EAC" onclick="eac()">
+            <div class="EAC" onclick="oac()">
                 <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
                 <h3>Employee Attendance Checker</h3>
             </div>

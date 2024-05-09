@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benefits</title>
+<<<<<<< HEAD
     <link href="employeeBenefitManagement.css" rel="stylesheet">
+=======
+    <link href="employeeBenefitManagement.css" rel="stylesheet"> 
+>>>>>>> 3630c1f10ac08e9c42de791eda1a5518026b1118
 </head>
 <body>
 <header>
@@ -13,23 +17,18 @@
             <h3 id="logoName">Innovate Nepal</h3>
         </div>
 
-        <div class="userlogo">
-            <p>Bijay Gurung</p>
-            <div class="image"></div>
-        </div>
-
-        <p class="role">Admin</p>
-    </header>
-
-    <section>
-    <div class="sideNavbar">
+        <nav>
             <a href="UserDashboard.php" id="home">Dashboard</a>
             <a href="employeeDataManagement.php" id="edm">Employee Data Management</a>
             <a href="employeePayroll.php" id="pm">Payroll Management</a>
             <a href="employeeBenefitManagement.php" id="con">Benefits Management</a>
-            <a href="#" id="pe">Performance Evaluations</a>
+            <a href="employeePerformanceEvaluation.php" id="pe">Performance Evaluations</a>
             <a href="index.html">Logout</a>
-        </div>    
+        </nav>
+
+    </header>
+
+    <section>  
 
     <?php
         $db_host = 'localhost';
@@ -43,7 +42,6 @@
             die("Connection failed" . $db->connect_error);
         }
 
-        // Function to sanitize input
         function validateInput($data) {
             $data = trim($data);
             $data = stripslashes($data);
@@ -51,7 +49,6 @@
             return $data;
         }
 
-        // Function to retrieve and display data from a table
         function displayTable($tableName, $columnNames) {
             global $db;
 
@@ -59,7 +56,7 @@
             $result = $db->query($query);
 
             if ($result->num_rows > 0) {
-                echo "<h2>$tableName</h2>";
+                echo "<h1>$tableName</h1>";
                 echo "<table border='1'>";
                 echo "<tr>";
                 foreach ($columnNames as $columnName) {
@@ -79,7 +76,6 @@
             }
         }
 
-        // Define table names and their corresponding column names
         $tables = array(
             "hdi" => array("SN","Insurance Provider", "Policy Number", "Policy Start Date", "Policy End Date", "Type of Coverage", "Coverage Amount", "Deductible Amount", "Co Payment", "Network Providers", "Emergency Contact"),
             "li" => array("SN","Insurance Provider", "Policy Number", "Policy Start Date", "Policy End Date", "Coverage Amount", "Beneficiary"),
@@ -90,7 +86,6 @@
             "rs" => array("SN","Plan Name", "Plan Type", "Employer Contribution", "Vesting Schedule", "Investment Options", "Contact Info")
         );
 
-        // Display data for each table
         foreach ($tables as $tableName => $columnNames) {
             displayTable($tableName, $columnNames);
         }

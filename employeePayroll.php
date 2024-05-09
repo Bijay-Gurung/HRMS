@@ -87,7 +87,7 @@ mysqli_close($conn);
             <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
             <button id="payroll" onclick="ab()">Payroll Management</button>
             <button id="Benefits" onclick="ac()">Benefits Management</button>
-            <button id="performanceEvaluation"  onclick="ad()">Performance Evaluation</button>
+            <button id="performanceEvaluation" onclick="ad()">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
@@ -107,12 +107,12 @@ mysqli_close($conn);
                     location = 'employeeBenefitManagement.php';
                 }
 
-                function ad(){
-                    location = 'employeePayroll.php';
+                function oac(){
+                    location = 'employeeAttendanceChecker.php';
                 }
 
-                function eac(){
-                    location = 'employeeAttendanceChecker.php';
+                function ad(){
+                    location = 'employeePerformanceEvaluation.php';
                 }
 
                 function ae(){

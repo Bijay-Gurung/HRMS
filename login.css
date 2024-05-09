@@ -25,6 +25,20 @@
     margin-bottom: 20px;
 }
 
+.nav button{
+    background-color: #fff;
+    color: #007bff;
+    width: 90px;
+}
+
+.login a{
+    color: #fff;
+}
+
+#forgotPassword :hover{
+    color: #007bff;
+}
+
 button {
     height: 30px;
     width: 80px;

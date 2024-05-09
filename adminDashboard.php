@@ -86,7 +86,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
+<<<<<<< HEAD
             <button id="performanceEvaluation" onclick="pe()">Performance Evaluation</button>
+=======
+            <button id="performanceEvaluation" onclick="cm()">Performance Evaluation</button>
+>>>>>>> 3630c1f10ac08e9c42de791eda1a5518026b1118
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
@@ -104,6 +108,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 function bm(){
                     location = 'adminBenefitManagementSystem.php';
+                }
+
+                function cm(){
+                    location = 'adminPerformanceEvaluation.php';
+                }
+
+                function eac(){
+                    location = 'employeeAttendanceChecker.php';
                 }
 
                 function ae(){

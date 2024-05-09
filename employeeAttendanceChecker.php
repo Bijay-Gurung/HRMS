@@ -31,28 +31,28 @@
             <button id="employeeDataManagement" onclick="edm()">Employee Data Management</button>
             <button id="payroll" onclick="pm()">Payroll Management</button>
             <button id="Benefits" onclick="bm()">Benefits Management</button>
-            <button id="performanceEvaluation">Performance Evaluation</button>
+            <button id="performanceEvaluation" onclick="cm()">Performance Evaluation</button>
             <button id="logout" onclick="ae()">Logout</button>
 
             <script>
-                 function dashboard(){
-                    window.location.href = 'adminDashboard.php';
+                function dashboard(){
+                    location = 'adminDashboard.php';
                 }
 
                 function edm(){
-                    window.location.href = 'adminEmployeeDataManagement.php';
+                    location = 'adminEmployeeDataManagement.php';
                 }
 
                 function pm(){
-                    window.location.href = 'adminEmployeePayroll.php';
-                }
-
-                function eac(){
-                    location = 'employeeAttendanceChecker.php';
+                    location = 'adminEmployeePayroll.php';
                 }
 
                 function bm(){
                     location = 'adminBenefitManagementSystem.php';
+                }
+
+                function cm(){
+                    location = 'adminPerformanceEvaluation.php';
                 }
 
                 function ae(){
