@@ -33,3 +33,7 @@ function bm(){
 function pe(){
     location = "adminPerformanceEvaluation.php";
 }
+
+function evaluate(){
+    location = "performanceReview.php";
+}

@@ -56,7 +56,7 @@ function validateInput($data) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Human Resource Management System</title>
-    <link href="adminPerformanceEvaluation.css" rel="stylesheet">
+    <link href="employeePerformance.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -117,16 +117,7 @@ function validateInput($data) {
 
             <div class="action">
                 <form method="post">
-                    <input type="text" id="eid" name="eid" value="" placeholder="Employee ID" required>
-                    <input type="text" id="ename" name="ename" value="" placeholder="Employee Name" required>
-                    <input type="text" id="role" name="role" value="" placeholder="Role" required>
-                    <input type="text" id="department" name="department" placeholder="Department" required>
-                    <input type="text" id="branch" name="branch" placeholder="Branch" required>
-                    <input type="date" id="date" name="date" required>
-                    <input type="text" id="effeciency" name="effeciency" placeholder="Effeciency" value="" required>
-                    <input type="text" id="pa" name="pa" placeholder="Performance Average" value="" required>
-
-                    <button type="submit" name="evaluate">Evaluate</button>
+                    <button onclick="evaluate()" id="evaluate" name="evaluate">Evaluate</button>
 
                     <div class="generateReport">
                         <button class="gp" id="gp">Generate Report</button>
