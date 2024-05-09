@@ -83,7 +83,7 @@ mysqli_close($conn);
 
     <section>
     <div class="sideNavbar">
-    <button id="dashboard" onclick="das()">Dashboard</button>
+            <button id="dashboard" onclick="das()">Dashboard</button>
             <button id="employeeDataManagement" onclick="am()">Employee Data Management</button>
             <button id="payroll" onclick="ab()">Payroll Management</button>
             <button id="Benefits" onclick="ac()">Benefits Management</button>
@@ -103,11 +103,11 @@ mysqli_close($conn);
                     location = 'employeePayroll.php';
                 }
 
-                function eac(){
+                function ac(){
                     location = 'employeeBenefitManagement.php';
                 }
 
-                function ac(){
+                function oac(){
                     location = 'employeeAttendanceChecker.php';
                 }
 

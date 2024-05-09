@@ -29,3 +29,7 @@ function pm(){
 function bm(){
     location = "adminBenefitManagementSystem.php";
 }
+
+function eac(){
+    location = 'employeeAttendanceChecker.php';
+}

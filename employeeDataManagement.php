@@ -47,11 +47,11 @@
                     location = 'employeePayroll.php';
                 }
 
-                function eac(){
+                function ac(){
                     location = 'employeeBenefitManagement.php';
                 }
 
-                function ac(){
+                function oac(){
                     location = 'employeeAttendanceChecker.php';
                 }
 
@@ -129,6 +129,7 @@
                         }
                     }
                 }
+            }
    
     </script>
 

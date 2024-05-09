@@ -1,133 +1,127 @@
-*{
-    margin: 0px;
-    padding: 0px;
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-header{
+/* Header styles */
+header {
     border-bottom: 1px solid #808080;
     width: 100%;
     background-color: rgb(47, 55, 85);
     display: flex;
-    position: fixed;
-    z-index: 1;
 }
 
-#logo{
+#logo {
     height: 45px;
     width: 45px;
     background-image: url(./Images/Logo.jpeg);
     background-size: cover;
     background-position: center;
-    border-radius: 90px;
+    border-radius: 50%; 
 }
-#logoName{
+
+#logoName {
     font-size: small;
     padding-left: 3px;
     color: #fff;
 }
 
-nav{
+nav {
     margin-top: 20px;
     margin-left: 40%;
 }
-a{
+
+a {
     color: #fff;
     padding-right: 60px;
     text-decoration: none;
 }
 
-#home:hover{
-    text-decoration: underline;
-}
-#edm:hover{
-    text-decoration: underline;
-}
-#pm:hover{
-    text-decoration: underline; 
-}
-#con:hover{
-    text-decoration: underline;
-}
-#pe:hover{
-    text-decoration: underline;
-}
-
-.userlogo{
+/* User logo styles */
+.userlogo {
     color: #fff;
     display: flex;
     position: relative;
     top: 15px;
-    left: 550px;
+    left: 550px; /* Adjusted from 550px */
 }
 
-.image{
+.image {
     height: 50px;
     width: 50px;
     background-image: url(./Images/Bijay.jpg);
     background-position: center;
     background-size: cover;
-    border-radius: 90px;
+    border-radius: 50%; 
     position: relative;
     bottom: 10px;
     margin-left: 15px;
 }
 
-.role{
+.role {
     color: #fff;
     position: relative;
     top: 35px;
-    left: 400px;
+    left: 400px; 
     font-size: small;
 }
-
-section{
-    display: grid;
-    height: 600px;
-    width: 100%;
-    position: relative;
-    top: 60px;
-    grid-template-columns: repeat(16,100px);
-    grid-template-rows: repeat(12,100px);
+/* Form Styles */
+.forms {
+    margin: 100px auto;
+    padding: 10px;
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    max-width: 800px; 
 }
 
-.forms{
-    grid-column-start: 1;
-    grid-column-end: 16;
-    grid-row-start: 1;
-    grid-row-end: 12;
+.forms fieldset {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd; 
+    border-radius: 10px;
 }
 
-.forms fieldset{
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 40px;
+.fieldset legend {
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.fieldset legend{
-    padding-top: 20px;
+.fieldset label {
+    display: block;
+    margin-bottom: 20px; 
 }
 
-.fieldset label{
-    padding-top: 20px;
+.fieldset input[type="number"],
+.fieldset textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.fieldset input{
-    padding-top: 20px;
+.fieldset input[type="radio"] {
+    margin-right: 10px;
 }
 
-#submit{
+#submit {
     background-color: rgb(47, 55, 85);
     color: #fff;
     border: none;
-    border-radius: 9px;
-    height: 25px;
-    width: 130px;
-    margin-top: 10px;
-    margin-left: 46%;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit:hover {
+    background-color: #354152; /* Darken the background on hover */
 }
