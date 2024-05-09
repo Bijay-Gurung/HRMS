@@ -185,7 +185,6 @@ section{
     width: 120px;       
 }
 
-<<<<<<< HEAD
 .report {
     grid-column-start: 4;
     grid-column-end: 10;
@@ -195,17 +194,6 @@ section{
     position: fixed;
     top: 0;
     left: 0;
-=======
-.report{
-    grid-column-start: 3;
-    grid-column-end: 16;
-    grid-row-start: 2;
-    grid-row-end: 9;
-    display: none;
-    position: relative;
-    top: 30px;
-    left: 120px;
->>>>>>> 3630c1f10ac08e9c42de791eda1a5518026b1118
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -219,12 +207,8 @@ section{
     color: #fff;
     box-shadow: 2px 2px 9px 1px #686060;
     height: 200px;
-<<<<<<< HEAD
     width: 100%;
     max-width: 600px;
-=======
-    width: 130%;
->>>>>>> 3630c1f10ac08e9c42de791eda1a5518026b1118
     margin: 20px auto;
     padding-top: 10px;
     border-radius: 5px;
@@ -233,29 +217,19 @@ section{
 }
 .content table{
     width: 100%;
-<<<<<<< HEAD
-=======
-    text-align: center;
->>>>>>> 3630c1f10ac08e9c42de791eda1a5518026b1118
 }
 
 .report .footer button {
     height: 30px;
-<<<<<<< HEAD
     width: 40px;
-=======
-    width: 90px;
->>>>>>> 3630c1f10ac08e9c42de791eda1a5518026b1118
     border-radius: 5px;
     border: none;
     box-shadow: 2px 2px 9px 1px #808080;
     background-color: rgb(47, 55, 85);
     color: #fff;
     position: relative;
-<<<<<<< HEAD
     top: 60px;
     left: 65%;
-=======
     top: 20px;
     left: 118%;
 }
@@ -265,5 +239,4 @@ section{
     background-color: #fff;
     position: relative;
     bottom: 11px;
->>>>>>> 3630c1f10ac08e9c42de791eda1a5518026b1118
 }
