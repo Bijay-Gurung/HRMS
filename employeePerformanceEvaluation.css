@@ -184,7 +184,6 @@ section{
     height: 25px;
     width: 120px;       
 }
-
 .report{
     grid-column-start: 3;
     grid-column-end: 16;

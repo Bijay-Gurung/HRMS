@@ -1,0 +1,133 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    border-bottom: 1px solid #808080;
+    width: 100%;
+    background-color: rgb(47, 55, 85);
+    display: flex;
+    position: fixed;
+    z-index: 1;
+}
+
+#logo{
+    height: 45px;
+    width: 45px;
+    background-image: url(./Images/Logo.jpeg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 90px;
+}
+#logoName{
+    font-size: small;
+    padding-left: 3px;
+    color: #fff;
+}
+
+nav{
+    margin-top: 20px;
+    margin-left: 40%;
+}
+a{
+    color: #fff;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+#home:hover{
+    text-decoration: underline;
+}
+#edm:hover{
+    text-decoration: underline;
+}
+#pm:hover{
+    text-decoration: underline; 
+}
+#con:hover{
+    text-decoration: underline;
+}
+#pe:hover{
+    text-decoration: underline;
+}
+
+.userlogo{
+    color: #fff;
+    display: flex;
+    position: relative;
+    top: 15px;
+    left: 550px;
+}
+
+.image{
+    height: 50px;
+    width: 50px;
+    background-image: url(./Images/Bijay.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 90px;
+    position: relative;
+    bottom: 10px;
+    margin-left: 15px;
+}
+
+.role{
+    color: #fff;
+    position: relative;
+    top: 35px;
+    left: 400px;
+    font-size: small;
+}
+
+section{
+    display: grid;
+    height: 600px;
+    width: 100%;
+    position: relative;
+    top: 60px;
+    grid-template-columns: repeat(16,100px);
+    grid-template-rows: repeat(12,100px);
+}
+
+.forms{
+    grid-column-start: 1;
+    grid-column-end: 16;
+    grid-row-start: 1;
+    grid-row-end: 12;
+}
+
+.forms fieldset{
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 40px;
+}
+
+.fieldset legend{
+    padding-top: 20px;
+}
+
+.fieldset label{
+    padding-top: 20px;
+}
+
+.fieldset input{
+    padding-top: 20px;
+}
+
+#submit{
+    background-color: rgb(47, 55, 85);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    height: 25px;
+    width: 130px;
+    margin-top: 10px;
+    margin-left: 46%;
+}
